@@ -20,7 +20,8 @@
     // *********************** Email *********************/
     //****************************************************/ 
 
-    function validEmail(){
+    function validEmail()
+    {
 
         // Creation of the Regexp to validate the email
         let emailRegExp = new RegExp
@@ -46,13 +47,14 @@
             small.style.color = 'red';
             return false;
         }
-}
+    }
 
     // *********************** Login *********************/
     //****************************************************/ 
 
 
-    function validLogin(){
+    function validLogin()
+    {
 
         // Creation of the Regexp to validate the Login.
         let loginRegExp = new RegExp
@@ -86,7 +88,49 @@
             return false;
             }
         }
-
-
-
     }
+
+        // *********************** Password ********************/
+        // *****************************************************/ 
+
+
+        function validPassword()
+        {
+
+            let messg;
+            let valide = false;
+    
+            if(password.value.length < 4){
+                messg = 'Password trop court, Minimum 4 caractères !'
+            }
+            else if(!/[A-Z]/.test(password.value))   // Check Upper case.
+            {
+                messg = 'Minimum 1 Majuscule !';
+            }
+            else if (!/[a-z]/.test(password.value))
+            {
+                messg = 'Minimum 1 Minuscule !';    // Check Lower case.
+            }
+            else if(!/[0-9]/.test(password.value))
+            {
+                messg = 'Minimum 1 Chiffre !';  // Check Number.
+            }
+            else{
+                messg = 'Le Password est Valide';
+                valide = true;
+            }
+    
+            const small = password.nextElementSibling;
+    
+            if(valide){
+    
+                small.innerHTML = 'Password Valide';
+                small.style.color = 'green';
+                return true;
+            }
+            else{
+                small.innerHTML = messg;
+                small.style.color = 'red';
+                return false;
+            }
+        }
