@@ -25,6 +25,7 @@ class User
     }
 
     /**
+     * Check DB where username = 
     * @return ?array[0]["$data"]
     */
     public function check_DB($username)
@@ -35,6 +36,25 @@ class User
         $data->bindParam(':username', $username);
         $data->execute();
         return $data->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Register the user in the database.
+     */
+    public function register($email, $username, $password)
+    {
+
+        if(empty($this->check_DB($username))):
+
+            $requestInsert = "INSERT INTO `utilisateurs` (`email`, `password`, `username`, `register_date`, `role`) VALUE (:email, :password, :username, now(), :role)";
+            $request = \DbConnection::getDb()->prepare($requestInsert);
+            $request->bindParam(':email', $email);
+            $request->bindParam(':password', $password);
+            $request->bindParam(':username', $username);
+            $request->bindParam(':role', 'user');   // the default role is user
+            $request->execute();
+
+        endif;
     }
     
 }
