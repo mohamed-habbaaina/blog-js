@@ -13,8 +13,8 @@
 
     email.addEventListener('change', validEmail);
     login.addEventListener('change', validLogin);
-    // password.addEventListener('change', validPassword);
-    // repass.addEventListener('change', validRepass);
+    password.addEventListener('change', validPassword);
+    repass.addEventListener('change', validRepass);
 
 
     // *********************** Email *********************/
@@ -90,47 +90,66 @@
         }
     }
 
-        // *********************** Password ********************/
-        // *****************************************************/ 
+    // *********************** Password ********************/
+    // *****************************************************/ 
 
+    function validPassword()
+    {
+        let messg;
+        let valide = false;
 
-        function validPassword()
-        {
-
-            let messg;
-            let valide = false;
-    
-            if(password.value.length < 4){
-                messg = 'Password trop court, Minimum 4 caractères !'
-            }
-            else if(!/[A-Z]/.test(password.value))   // Check Upper case.
-            {
-                messg = 'Minimum 1 Majuscule !';
-            }
-            else if (!/[a-z]/.test(password.value))
-            {
-                messg = 'Minimum 1 Minuscule !';    // Check Lower case.
-            }
-            else if(!/[0-9]/.test(password.value))
-            {
-                messg = 'Minimum 1 Chiffre !';  // Check Number.
-            }
-            else{
-                messg = 'Le Password est Valide';
-                valide = true;
-            }
-    
-            const small = password.nextElementSibling;
-    
-            if(valide){
-    
-                small.innerHTML = 'Password Valide';
-                small.style.color = 'green';
-                return true;
-            }
-            else{
-                small.innerHTML = messg;
-                small.style.color = 'red';
-                return false;
-            }
+        if(password.value.length < 4){
+            messg = 'Password trop court, Minimum 4 caractères !'
         }
+        else if(!/[A-Z]/.test(password.value))   // Check Upper case.
+        {
+            messg = 'Minimum 1 Majuscule !';
+        }
+        else if (!/[a-z]/.test(password.value))
+        {
+            messg = 'Minimum 1 Minuscule !';    // Check Lower case.
+        }
+        else if(!/[0-9]/.test(password.value))
+        {
+            messg = 'Minimum 1 Chiffre !';  // Check Number.
+        }
+        else{
+            messg = 'Le Password est Valide';
+            valide = true;
+        }
+
+        const small = password.nextElementSibling;
+
+        if(valide){
+
+            small.innerHTML = 'Password Valide';
+            small.style.color = 'green';
+            return true;
+        }
+        else{
+            small.innerHTML = messg;
+            small.style.color = 'red';
+            return false;
+        }
+    }
+
+    //****************** Confermation Password ***************/
+    // *******************************************************/ 
+
+
+    function validRepass(){
+
+        const small = repass.nextElementSibling;
+
+        if(repass.value === password.value){
+            small.innerHTML = 'Confermation Password Valide';
+            small.style.color = 'green';
+            return true;
+        }
+        else{
+            small.innerHTML = 'Veuillez entrer le même Password !';
+            small.style.color = 'red';
+            return false;
+        }
+
+    }
