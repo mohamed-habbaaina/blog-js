@@ -18,7 +18,10 @@ require_once './../../app/controller/article.php';
 
     <main>
 
-        
+        <h1><?= $article->getTitle() ?></h1>
+        <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
+        <p>Écrit par <b><?= $article->getAuthor()['username'] ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
+        <p><?= $article->getContent() ?></p>
         
     </main>
 
