@@ -3,7 +3,7 @@
     const formRegister = document.forms['formRegister'];
 
     const email = document.forms['formRegister']['email'];
-    const login = document.forms['formRegister']['username'];
+    const username = document.forms['formRegister']['username'];
     const password = document.forms['formRegister']['password'];
     const repass = document.forms['formRegister']['repass'];
 
@@ -12,7 +12,7 @@
     //****************************************************/ 
 
     email.addEventListener('change', validEmail);
-    login.addEventListener('change', validLogin);
+    username.addEventListener('change', validusername);
     password.addEventListener('change', validPassword);
     repass.addEventListener('change', validRepass);
 
@@ -49,41 +49,41 @@
         }
     }
 
-    // *********************** Login *********************/
+    // *********************** username *********************/
     //****************************************************/ 
 
 
-    function validLogin()
+    function validusername()
     {
 
-        // Creation of the Regexp to validate the Login.
-        let loginRegExp = new RegExp
+        // Creation of the Regexp to validate the username.
+        let usernameRegExp = new RegExp
         (
-            '^[a-zA-Z\-]+$'
+            '^[a-zA-Z0-9\-_]+$'
         )
 
-        let testLogin = loginRegExp.test(login.value); // @return true , fals
+        let testusername = usernameRegExp.test(username.value); // @return true , fals
 
         // Display messag
-        let small = login.nextElementSibling;
+        let small = username.nextElementSibling;
         
-        // Login minimum 3 characters.
-        if(login.value.length < 3)
+        // username minimum 4 characters.
+        if(username.value.length < 4)
         {
-            small.innerHTML = 'Login trop court, minimum 3 lettre !';
+            small.innerHTML = 'username trop court, minimum 4 lettre !';
             small.style.color = 'red';
         }
         else
         {
-            if(testLogin)
+            if(testusername)
             {
-                small.innerHTML = 'Login Valide';
+                small.innerHTML = 'username Valide';
                 small.style.color = 'green';
                 return true; // to use it in the form devalidation function => validForm.
             }
             else
             {
-                small.innerHTML = 'Login Invalid, [a-z] 0-9 (.-_) !';
+                small.innerHTML = 'username Invalid, [a-z] 0-9 (.-_) !';
                 small.style.color = 'red';
             return false;
             }
@@ -153,3 +153,65 @@
         }
 
     }
+
+    //******************  Validation  ********************$$**/
+    // *******************************************************/ 
+
+
+    /**
+     * 
+     * @returns true if inputs valide
+     */
+    function validForm() {
+
+        if(validEmail() && validusername() && validPassword() && validRepass()){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+
+    // ****************  Fetch and Create User ****************/
+    //*********************************************************/
+
+    formRegister.addEventListener('submit', async function(e)
+    {
+
+        e.preventDefault();
+
+        const payload = new FormData(this); // creation object Form.
+
+        await fetch('./../../app/controller/register.php', 
+        {
+            method: 'post',
+            body: payload
+        })
+        .then((response) => {
+
+            if(validForm())
+            {
+
+                //  Displaying message if user is created.
+                if(response.status == 201)
+                {
+                    alert(response.statusText);
+                    window.location = "./connect.php";
+                }
+                else
+                {
+                    alert('Le Usernane n\'est pas disponible, Veillez le changé !');
+                }
+
+            }
+            else
+            {
+                alert('Données Invalides !')
+            }            
+        })
+
+
+
+    })
