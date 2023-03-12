@@ -63,7 +63,7 @@ class Article
     /**
      * @return array containing article infos in database
      */
-    public function get()
+    public function get(): void
     {
         $sql = 'SELECT * FROM articles WHERE id = :id';
 
@@ -76,7 +76,12 @@ class Article
         $article = $select->fetch(PDO::FETCH_ASSOC);
 
         if ($article) {
-            return $article;
+            $this->_title = $article['title'];
+            $this->_content = $article['content'];
+            $this->_creation_date = new DateTime($article['creation_date']);
+            $this->_edit_date = isset($article['edit_date']) ? new DateTime($article['edit_date']) : null;
+            $this->_user_id = $article['user_id'];
+            $this->_category_id = $article['category_id'];
         } else {
             throw new Exception('Article introuvable.');
         }        
