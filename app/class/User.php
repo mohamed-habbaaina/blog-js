@@ -1,6 +1,6 @@
 <?php
 namespace User;
-require_once('./DbConnection.php');
+// require_once('./DbConnection.php');
 class User
 {
     private ?string $username;
@@ -9,6 +9,22 @@ class User
     private ?string $repass;
     private ?array $data;
 
+    // La DB.
+    private $servername = 'localhost';
+    private $username_b = 'root';
+    private $password_b = '';
+    private $database = 'blog_js';
+    private $db;
+
+    public function __construct()
+    {
+        try {
+            $this->db = new \PDO("mysql:host=$this->servername;dbname=$this->database;charset=utf8", "$this->username_b", "$this->password_b");
+        }
+       catch(\PDOException $e){
+            echo 'ERROR: ' . $e->getMessage();
+       }
+    }
 
     /**
      * method of securing inputs
@@ -32,7 +48,7 @@ class User
     {
 
         $requestCheck = "SELECT * FROM `users` WHERE username=:username";
-        $data = \DbConnection::getDb()->prepare($requestCheck);
+        $data = $this->db->prepare($requestCheck);
         $data->bindParam(':username', $username);
         $data->execute();
         return $data->fetchAll(\PDO::FETCH_ASSOC);
@@ -46,18 +62,21 @@ class User
 
         if(empty($this->check_DB($username))):
 
-            $requestInsert = "INSERT INTO `utilisateurs` (`email`, `password`, `username`, `register_date`, `role`) VALUE (:email, :password, :username, now(), :role)";
-            $request = \DbConnection::getDb()->prepare($requestInsert);
+            $requestInsert = "INSERT INTO `users` (`email`, `password`, `username`, `register_date`, `role`) VALUE (:email, :password, :username, now(), 'user')";
+            $request = $this->db->prepare($requestInsert);
             $request->bindParam(':email', $email);
             $request->bindParam(':password', $password);
             $request->bindParam(':username', $username);
-            $request->bindParam(':role', 'user');   // the default role is user
             $request->execute();
+            
+            echo 'ok';
 
         endif;
     }
     
 }
-$user = new User();
-
-var_dump($user->check_DB('mohamed'));
+$user = new \User\User();
+var_dump($user->check_DB('moh'));
+echo '<br>';
+// var_dump($user->check_DB('TOTO'));
+// var_dump($user->register('mohamed@ghj.hb', 'mohaa', 'mohamed'));
