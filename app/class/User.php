@@ -72,19 +72,44 @@ class User
         endif;
     }
 
-    public function check_DB_connect($email)
-    {
-        $requestCheckEmail = "SELECT * FROM `users` WHERE email=:email";
-        $data = $this->db->prepare($requestCheckEmail);
-        $data->bindParam(':email', $email);
-        $data->execute();
-        return $data->fetchAll(\PDO::FETCH_ASSOC);
+    // public function check_DB_connect($email)
+    // {
+    //     $requestCheckEmail = "SELECT * FROM `users` WHERE email=:email";
+    //     $data = $this->db->prepare($requestCheckEmail);
+    //     $data->bindParam(':email', $email);
+    //     $data->execute();
+    //     return $data->fetchAll(\PDO::FETCH_ASSOC);
 
+    // }
+
+    /**
+     * method for connecting the user.
+     * @return  true,false
+     */
+
+    public function connection($username, $password)
+    {
+
+        $data = $this->check_DB($username);
+
+        if(!empty($data)):
+
+            $password_db = $data[0]['password'];
+            
+                // verifier le password Haché.
+                if (password_verify($password, $password_db)):
+                  
+                    return true;
+                else:
+                     return false;
+                endif;
+        endif;
     }
     
 }
-$user = new \User\User();
-var_dump($user->check_DB_connect('mohamed.habbaaina@laplateforme.io'));
-echo '<br>';
+// $user = new \User\User();
+// var_dump($user->check_DB('admin'));
+// echo '<br>';
+// var_dump($user->connection('toto', 'Azerty1'));
 // var_dump($user->check_DB('TOTO'));
 // var_dump($user->register('mohamed@ghj.hb', 'mohaa', 'mohamed'));
