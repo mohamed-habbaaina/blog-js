@@ -23,8 +23,7 @@ class DbConnection
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
-
-            return self::$_db;
         }
+        return self::$_db;
     }
 }
