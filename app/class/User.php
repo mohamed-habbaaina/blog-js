@@ -7,6 +7,7 @@ class User
     private ?string $email;
     private ?string $password;
     private ?string $repass;
+    private ?int $id;
     private ?array $data;
 
     // La DB.
@@ -105,11 +106,23 @@ class User
                 endif;
         endif;
     }
+
+    // ** GETTERS: ID & Role
+    /**
+     * getter id
+     * @return int
+     */
+    public function getId($username)
+    {
+        $data = $this->check_DB($username);
+
+        return $data[0]['id'];
+    }
     
 }
-// $user = new \User\User();
+$user = new \User\User();
 // var_dump($user->check_DB('admin'));
 // echo '<br>';
-// var_dump($user->connection('toto', 'Azerty1'));
+var_dump($user->getId('admin'));
 // var_dump($user->check_DB('TOTO'));
 // var_dump($user->register('mohamed@ghj.hb', 'mohaa', 'mohamed'));
