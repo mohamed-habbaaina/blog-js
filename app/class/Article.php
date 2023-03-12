@@ -71,9 +71,11 @@ class Article
 
         $select->bindParam(':id', $this->_id);
 
-        if ($select->execute()) {
-            $article = $select->fetch(PDO::FETCH_ASSOC);
+        $select->execute();
 
+        $article = $select->fetch(PDO::FETCH_ASSOC);
+
+        if ($article) {
             return $article;
         } else {
             throw new Exception('Article introuvable.');
