@@ -32,7 +32,7 @@ class Article
     /**
      * @var int article author / owner id, from users
      */
-    public string $_user_id;
+    public int $_user_id;
     
     /**
      * @var int category id of article, from categories
@@ -61,7 +61,8 @@ class Article
     }
 
     /**
-     * @return array containing article infos in database
+     * @return void
+     * set instance properties with retrieved data using $_id property
      */
     public function get(): void
     {
@@ -88,11 +89,24 @@ class Article
     }
 
     /**
-     * @return string author using $_user_id property
+     * @return array author infos using $_user_id property
      */
     public function getAuthor()
     {
-        # code...
+        $sql = 'SELECT id, email, username, register_date, role FROM users WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $this->_user_id);
+
+        $select->execute();
+
+        return $select->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getCategoryName()
+    {
+        
     }
 
     /**
