@@ -1,5 +1,7 @@
 <?php
 
+require_once 'DbConnection.php';
+
 class Article
 {
     /**
@@ -56,6 +58,26 @@ class Article
     public function delete()
     {
 
+    }
+
+    /**
+     * @return array containing article infos in database
+     */
+    public function get()
+    {
+        $sql = 'SELECT * FROM articles WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $this->_id);
+
+        if ($select->execute()) {
+            $article = $select->fetch(PDO::FETCH_ASSOC);
+
+            return $article;
+        } else {
+            throw new Exception('Article introuvable.');
+        }        
     }
 
     /**
