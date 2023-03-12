@@ -22,8 +22,8 @@
             <input type="email" name="email" placeholder="Entre Votre Email">
             <small></small>
             
-            <label for="username">Login</label>
-            <input type="text" name="username" placeholder="Entre Votre Login">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="Entre Votre Username">
             <small></small>
             
             <label for="password">Password</label>
@@ -34,7 +34,7 @@
             <input type="password" name="repass" placeholder="Confirmer Votre Password">
             <small></small>
             
-            <button type="submit">S'inscrire</button>
+            <button>S'inscrire</button>
         </form>
         
     </main>
