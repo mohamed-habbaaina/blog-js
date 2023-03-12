@@ -108,6 +108,7 @@ class User
     }
 
     // ** GETTERS: ID & Role
+
     /**
      * getter id
      * @return int
@@ -118,11 +119,16 @@ class User
 
         return $data[0]['id'];
     }
+
+        /**
+     * getter Role
+     * @return string
+     */
+    public function getRole($username)
+    {
+        $data = $this->check_DB($username);
+
+        return $data[0]['role'];
+    }
     
 }
-$user = new \User\User();
-// var_dump($user->check_DB('admin'));
-// echo '<br>';
-var_dump($user->getId('admin'));
-// var_dump($user->check_DB('TOTO'));
-// var_dump($user->register('mohamed@ghj.hb', 'mohaa', 'mohamed'));
