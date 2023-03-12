@@ -69,14 +69,22 @@ class User
             $request->bindParam(':username', $username);
             $request->execute();
             
-            echo 'ok';
-
         endif;
+    }
+
+    public function check_DB_connect($email)
+    {
+        $requestCheckEmail = "SELECT * FROM `users` WHERE email=:email";
+        $data = $this->db->prepare($requestCheckEmail);
+        $data->bindParam(':email', $email);
+        $data->execute();
+        return $data->fetchAll(\PDO::FETCH_ASSOC);
+
     }
     
 }
 $user = new \User\User();
-var_dump($user->check_DB('moh'));
+var_dump($user->check_DB_connect('mohamed.habbaaina@laplateforme.io'));
 echo '<br>';
 // var_dump($user->check_DB('TOTO'));
 // var_dump($user->register('mohamed@ghj.hb', 'mohaa', 'mohamed'));
