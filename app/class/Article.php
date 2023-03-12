@@ -104,9 +104,20 @@ class Article
         return $select->fetch(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * @return string article category from db using $_category_id property
+     */
     public function getCategoryName()
     {
-        
+        $sql = 'SELECT name FROM categories WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $this->_category_id);
+
+        $select->execute();
+
+        return $select->fetchColumn();
     }
 
     /**
