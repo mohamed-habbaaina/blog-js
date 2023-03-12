@@ -21,15 +21,15 @@ session_start();
             
             <h1>Connexion</h1>
             
-            <label for="email">Email</label>
-            <input type="email" name="email" placeholder="Entre Votre Email">
+            <label for="username">Username</label>
+            <input type="username" name="username" placeholder="Entre Votre Username">
             <small></small>
             
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="Entre Votre Password">
             <small></small>
             
-            <button>S'inscrire</button>
+            <button>Connexion</button>
 
         </form>
         
