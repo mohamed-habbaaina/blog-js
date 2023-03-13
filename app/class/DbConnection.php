@@ -11,7 +11,6 @@ class DbConnection
 
     public static function getDb()
     {
-        
         if (!self::$_db) {
             try {
                 // get database infos from ini file in config folder

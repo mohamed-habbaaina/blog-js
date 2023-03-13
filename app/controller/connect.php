@@ -1,5 +1,7 @@
 <?php
 session_start();
+// var_dump(__DIR__);
+
 require_once './../class/User.php';
 $user = new User\User();
 
