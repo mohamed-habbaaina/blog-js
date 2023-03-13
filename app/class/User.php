@@ -1,6 +1,11 @@
 <?php
 namespace User;
-// require_once('./DbConnection.php');
+
+// use DbConnection;
+
+// var_dump(__DIR__);
+require_once 'DbConnection.php';
+
 class User
 {
     private ?string $username;
@@ -19,12 +24,12 @@ class User
 
     public function __construct()
     {
-        try {
-            $this->db = new \PDO("mysql:host=$this->servername;dbname=$this->database;charset=utf8", "$this->username_b", "$this->password_b");
-        }
-       catch(\PDOException $e){
-            echo 'ERROR: ' . $e->getMessage();
-       }
+    //     try {
+    //         $this->db = new \PDO("mysql:host=$this->servername;dbname=$this->database;charset=utf8", "$this->username_b", "$this->password_b");
+    //     }
+    //    catch(\PDOException $e){
+    //         echo 'ERROR: ' . $e->getMessage();
+    //    }
     }
 
     /**
@@ -49,7 +54,7 @@ class User
     {
 
         $requestCheck = "SELECT * FROM `users` WHERE username=:username";
-        $data = $this->db->prepare($requestCheck);
+        $data = \DbConnection::getDb()->prepare($requestCheck);
         $data->bindParam(':username', $username);
         $data->execute();
         return $data->fetchAll(\PDO::FETCH_ASSOC);
@@ -63,20 +68,20 @@ class User
 
         if(empty($this->check_DB($username))):
 
-            $requestInsert = "INSERT INTO `users` (`email`, `password`, `username`, `register_date`, `role`) VALUE (:email, :password, :username, now(), 'user')";
-            $request = $this->db->prepare($requestInsert);
+            $requestInsert = "INSERT INTO `users` (`email`, `password`, `username`, `register_date`, `role`) VALUE (:email, :password, :username, NOW(), 'user')";
+            $request = \DbConnection::getDb()->prepare($requestInsert);
             $request->bindParam(':email', $email);
             $request->bindParam(':password', $password);
             $request->bindParam(':username', $username);
             $request->execute();
-            
+
         endif;
     }
 
     // public function check_DB_connect($email)
     // {
     //     $requestCheckEmail = "SELECT * FROM `users` WHERE email=:email";
-    //     $data = $this->db->prepare($requestCheckEmail);
+    //     $data = \DbConnection::getDb()->prepare($requestCheckEmail);
     //     $data->bindParam(':email', $email);
     //     $data->execute();
     //     return $data->fetchAll(\PDO::FETCH_ASSOC);

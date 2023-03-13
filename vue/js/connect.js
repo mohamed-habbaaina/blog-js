@@ -11,23 +11,16 @@ formConnect.addEventListener('submit', async function(e)
 {
     e.preventDefault();
     const payload = new FormData(this); // creation object Form.
-    await fetch('./../../app/controller/connect.php', 
-    {
-        method: 'post',
-        body: payload
-    })
-    .then((response) => {
-        
-        // 
-        if(response.statusText === 'connected !')
+    let request = await fetch('./../../app/controller/connect.php', 
         {
-            alert(response.statusText);
-            window.location = "./blog.php";
-        }
-        else
-        {
-            alert('Username ou Password Incorrecte !')
-        }
+            method: 'post',
+            body: payload
+        });
 
-    })
+    if (request.statusText === 'connected !') {
+        alert(request.statusText);
+        window.location = "./blog.php";
+    } else {
+        alert('Username ou Password Incorrecte !');
+    }
 });
