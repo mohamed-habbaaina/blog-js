@@ -104,6 +104,8 @@ class User
                 else:
                      return false;
                 endif;
+            else:
+                return false;
         endif;
     }
 
@@ -129,6 +131,28 @@ class User
         $data = $this->check_DB($username);
 
         return $data[0]['role'];
+    }
+
+    /**
+    * @return true,false
+    */
+    public function isConnected(){
+
+        if(isset($_SESSION['role'])):
+            return true;
+        else:
+            return false;
+        endif;
+    }
+
+    /**
+     * Destroy all variables of the current session, and Destroy the current session
+     */
+    public function deconnect(){
+        
+        $_SESSION = array(); 
+        session_unset();
+        session_destroy();
     }
     
 }
