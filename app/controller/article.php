@@ -1,9 +1,9 @@
 <?php
 
-if (!isset($_GET['id'])) {
-    header('Location: blog.html');
-    die();
-}
+// if (!isset($_GET['id'])) {
+    // header('Location: blog.html');
+    // die();
+// }
 
 require_once dirname(__DIR__) . '/class/Article.php';
 
