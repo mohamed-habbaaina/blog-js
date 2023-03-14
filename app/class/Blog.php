@@ -6,7 +6,8 @@ require_once 'Article.php';
 class Blog extends Article
 {
     public function getBlog(){
-        $reqBlog = 'SELECT username, title,	content, image, creation_date	, name  FROM users INNER JOIN articles ON users.id = articles.user_id INNER JOIN categories ON articles.category_id = categories.id LIMIT 6';
+        $reqBlog = 'SELECT username, articles.id, title, content, image, creation_date , name FROM users INNER JOIN articles ON users.id = articles.user_id INNER JOIN categories ON articles.category_id = categories.id ORDER BY `articles`.`creation_date` DESC LIMIT 6
+        ';
 
         // SELECT username, title, content, creation_date, name FROM users INNER JOIN articles ON users.id = articles.user_id INNER JOIN categories ON articles.category_id = categories.id;
 
