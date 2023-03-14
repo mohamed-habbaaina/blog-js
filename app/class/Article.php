@@ -49,6 +49,49 @@ class Article
      */
     public function save()
     {
+        // $sql = 'SELECT COUNT(id) FROM articles WHERE id = :id';
+
+        // $test = DbConnection::getDb()->prepare($sql);
+
+        // $test->bindParam(':id', $this->_id);
+
+        // $test->execute();
+
+        var_dump(isset($this->_id));
+
+        if (!isset($this->_id)) {
+            $sql = 'INSERT INTO articles (title, content, creation_date, user_id, category_id) VALUES (:title, :content, NOW(), :user_id, :category_id)';
+
+            $save = DbConnection::getDb()->prepare($sql);
+
+            $save->bindParam(':user_id', $this->_user_id);
+            $save->bindParam(':category_id', $this->_category_id);
+        } else {
+            $sql = 'UPDATE articles SET title = :title, content = :content, edit_date = NOW()';
+
+            $save = DbConnection::getDb()->prepare($sql);
+        }
+
+        $save->bindParam(':title', $this->_title);
+        $save->bindParam(':content', $this->_content);
+
+        $save->execute();
+
+        // return $test->fetchColumn();
+    }
+
+    public function create()
+    {
+        $sql = 'INSERT INTO articles (title, content, creation_date, user_id, category_id) VALUES (:title, :content, NOW(), :user_id, :category_id)';
+
+        $insert = DbConnection::getDb()->prepare($sql);
+
+        $insert->bindParam(':title', $this->_title);
+        $insert->bindParam(':content', $this->_content);
+        $insert->bindParam(':user_id', $this->_user_id);
+        $insert->bindParam(':category_id', $this->_category_id);
+
+        $insert->execute();
 
     }
 
