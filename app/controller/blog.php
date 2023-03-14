@@ -1,13 +1,5 @@
 <?php
 
-require_once('./../class/User.php');
-
-$user = new User\User();
-
-if(!$user->isConnected()){
-    header('location: ./../../public/index.php');
-    die;
-}
 require_once('./../class/Blog.php');
 
 
