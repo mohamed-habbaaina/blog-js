@@ -125,7 +125,7 @@ class Article
      */
     public function getExcerpt()
     {
-
+        return substr($this->_content, 0, 200);
     }
 
     /**
