@@ -11,7 +11,7 @@ require_once './../../app/controller/article.php';
     <link rel="stylesheet" href="./../../public/style/style.css">
     <link rel="stylesheet" href="./../../public/style/article.css">
     <script defer src="./../js/article.js"></script>
-    <title><?php  ?> | Blog Cuisine</title>
+    <title><?= $article->getTitle() ?> | Blog Cuisine</title>
 </head>
 <body>
     <?php require_once("./../includes/header.php") ?>
@@ -22,7 +22,7 @@ require_once './../../app/controller/article.php';
         <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
         <p>Écrit par <b><?= $article->getAuthor()['username'] ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
         <p><?= $article->getContent() ?></p>
-        
+
     </main>
 
     <?php require_once("./../includes/footer.php") ?>
