@@ -92,7 +92,6 @@ class Article
         $insert->bindParam(':category_id', $this->_category_id);
 
         $insert->execute();
-
     }
 
     /**
