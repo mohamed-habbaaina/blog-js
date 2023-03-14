@@ -26,95 +26,63 @@ session_start();
         
         <div class="blog">
             
-            <div class="card">
-                <div class="container">
-                    <h3>titel</h3>
+                <!-- <div class="card">
                     <img src="./../../public/img/image.jpg" alt="">
+                    <h3>titel Lorem ipsum, dolor</h3>
                     <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        
-                    </div>
-                </div>
-                <a href="">plus</a>
-            </div>
-
-            <div class="card">
-                
-                <div class="container">
-                    <h3>titel</h3>
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                    </div>
-                </div>
-                <a href="">plus</a>
-            </div>
-
-            <div class="card">
-                
-                <div class="container">
-                    <h3>titel</h3>
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        
-                    </div>
-                </div>
-                <a href="">plus</a>
-            </div>
-
-            <div class="card">
-                
-                <div class="container">
-                    <h3>titel</h3>
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        
-                    </div>
-                </div>
-                <a href="">plus</a>
-            </div>
-
-            <div class="card">
-                
-                <div class="container">
-                    <h3>titel</h3>
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        
-                    </div>
-                </div>
-                <a href="">plus</a>
-            </div>
-
-            <div class="card">
-
-                <div class="container">
-                    <h3>titel</h3>
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciuntLorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum dolor at atque! Aspernatur tempore est sequi temporibus quasi iusto magnam? Nam dolorem, quisquam voluptatum at repudiandae repellendus eum similique nesciunt</p>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
                         
                     </div>
                 </div>
 
-                <a href="">... plus</a>
+                <div class="card">
+                    <img src="./../../public/img/image.jpg" alt="">
+                    <h3>titel Lorem ipsum, dolor</h3>
+                    <div>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
+                        
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./../../public/img/image.jpg" alt="">
+                    <h3>titel Lorem ipsum, dolor</h3>
+                    <div>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
+                        
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./../../public/img/image.jpg" alt="">
+                    <h3>titel Lorem ipsum, dolor</h3>
+                    <div>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
+                        
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./../../public/img/image.jpg" alt="">
+                    <h3>titel Lorem ipsum, dolor</h3>
+                    <div>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
+                        
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="./../../public/img/image.jpg" alt="">
+                    <h3>titel Lorem ipsum, dolor</h3>
+                    <div>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
+                        
+                    </div>
+                </div> -->
+
+
                 
-            </div>
+
 
         </div>
     </main>
