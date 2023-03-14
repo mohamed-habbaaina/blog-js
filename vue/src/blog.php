@@ -26,62 +26,8 @@ session_start();
         
         <div class="blog">
             
-                <!-- <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
+                <!-- Display Fetch JS -->
 
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div> -->
-
-
-                
 
 
         </div>
