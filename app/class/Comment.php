@@ -6,35 +6,69 @@ class Comment
      * @var int comment id
      */
     private int $_id;
-    
+
     /**
      * @var string comment content
      */
     private string $_content;
-    
+
     /**
      * @var DateTime comment creation date 
      */
     private DateTime $_creation_date;
-    
+
     /**
      * @var DateTime optional, comment modification date
      */
     private ?DateTime $_edit_date = null;
-    
+
     /**
      * @var int comment author / owner id, from users
      */
     public int $_user_id;
-    
+
     /**
      * @var int article id of comment, from articles table
      */
-    public int $_article_id;    
+    public int $_article_id;
 
     public function __construct()
     {
+    }
 
+    public function create(): bool
+    {
+        $sql = 'INSERT INTO comments (content, creation_date, user_id, article_id) VALUES (:content, NOW(), :user_id, :article_id)';
+
+        $insert = DbConnection::getDb()->prepare($sql);
+
+        $insert->bindParam(':content', $this->_content);
+        $insert->bindParam(':user_id', $this->_user_id, PDO::PARAM_INT);
+        $insert->bindParam(':article_id', $this->_article_id, PDO::PARAM_INT);
+
+        return $insert->execute();
+    }
+
+    public function update(): bool
+    {
+        $sql = 'UPDATE comments SET content = :content, edit_date = NOW()';
+
+        $update = DbConnection::getDb()->prepare($sql);
+
+        $update->bindParam(':content', $this->_content);
+
+        return $update->execute();
+    }
+
+    public function delete(): bool
+    {
+        $sql = 'DELETE FROM comments WHERE id = :id';
+
+        $delete = DbConnection::getDb()->prepare($sql);
+
+        $delete->bindParam(':id', $this->_id, PDO::PARAM_INT);
+
+        return $delete->execute();
     }
 
     /**
