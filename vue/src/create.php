@@ -1,6 +1,17 @@
 <?php
 
+require_once dirname(dirname(__DIR__)) . '/app/class/Category.php';
+
 session_start();
+
+$categories = Category::getAll();
+
+var_dump($categories);
+
+foreach ($categories as $category) {
+    echo $category->getName() . '<br />';
+}
+
 var_dump($_POST, $_SESSION);
 
 ?>

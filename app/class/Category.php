@@ -1,5 +1,7 @@
 <?php
 
+require_once 'DbConnection.php';
+
 class Category
 {
     /**
@@ -11,17 +13,32 @@ class Category
      * @var string category name
      */
     private string $_name;
-    
+
     /**
      * @var string category description
      */
     private string $_description;
 
-    public function getAll()
+    public static function getAll()
     {
-        // get all articles from database
+        $sql = 'SELECT * FROM categories';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->execute();
+
+        return $select->fetchAll(PDO::FETCH_CLASS, 'Category');
     }
-    
+
+    public function __set($name, $value)
+    {
+        $this->{'_' . $name} = $value;
+    }
+
+    public function create()
+    {
+
+    }
 
     /**
      * Get the value of _id

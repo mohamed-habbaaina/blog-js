@@ -1,6 +1,7 @@
 <?php
 
 require_once dirname(__DIR__) . '/class/Article.php';
+require_once dirname(__DIR__) . '/class/Category.php';
 
 if (empty(trim($_POST['title']))) {
     throw new Exception('Le titre ne peut pas être vide.');
