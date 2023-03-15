@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// get the page number and store it in a global session variable
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = ($page < 1) ? 1 : $page;
+$_SESSION['page'] = $page;
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -7,7 +13,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../public/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./../../public/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../public/style/style.css">
     <link rel="stylesheet" href="../../public/style/blog.css">
     <script defer src="../js/blog.js"></script>
@@ -19,69 +25,15 @@ session_start();
 
     <main>
         <div class="pages">
-            <button>avant</button>
-            <button>arriere</button>
+            <button><a href="blog.php?page=<?php echo $page +1 ?>">Page suivante</a></button>
+            <button><a href="blog.php?page=<?php echo $page -1 ?>">Page précédente</a></button>
         </div>
 
         
         <div class="blog">
             
-                <!-- <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
+                <!-- Display Fetch JS -->
 
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./../../public/img/image.jpg" alt="">
-                    <h3>titel Lorem ipsum, dolor</h3>
-                    <div>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure  in  reiciendis corrupti hic nam dolore amet modi beatae blanditiis ab eius sequi soluta, repudiandae vel! Sunt, voluptas!<a href="">...plus</a></p>
-                        
-                    </div>
-                </div> -->
-
-
-                
 
 
         </div>
