@@ -4,13 +4,8 @@ require_once dirname(dirname(__DIR__)) . '/app/class/Category.php';
 
 session_start();
 
+// categories from database used for select article category with select & option html elements
 $categories = Category::getAll();
-
-var_dump($categories);
-
-foreach ($categories as $category) {
-    echo $category->getName() . '<br />';
-}
 
 var_dump($_POST, $_SESSION);
 
@@ -43,7 +38,9 @@ var_dump($_POST, $_SESSION);
             <label for="category">Catégorie</label>
             <select name="category" id="category">
                 <option value="">-- Sélectionnez la Catégorie --</option>
-                <!-- Récupérer catégories ici -->
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
+                <?php endforeach ?>
             </select>
             <small></small>
             
