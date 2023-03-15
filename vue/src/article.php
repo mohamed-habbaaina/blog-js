@@ -1,5 +1,9 @@
 <?php 
 require_once './../../app/controller/article.php';
+
+$comments = $article->getComments();
+
+var_dump($comments);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
