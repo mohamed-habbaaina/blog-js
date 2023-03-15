@@ -17,6 +17,8 @@ if (!empty($title) && !empty($content) && !empty($category)) {
         ->setCategoryId($category)
         ->setUserId($_SESSION['id'])
         ->create();
+
+    header('Location: ../../vue/src/blog.php');
 } else {
     echo 'erreur : veuillez remplir tous les champs';
 }
