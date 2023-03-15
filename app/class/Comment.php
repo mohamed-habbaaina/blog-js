@@ -36,6 +36,17 @@ class Comment
     {
     }
 
+    public function __set($name, $value)
+    {
+        if ($name === 'creation_date' || $name === 'edit_date' && $value !== null) {
+            $value = new DateTime($value);
+        }
+
+        if ($name[0] != '_') {
+            $this->{'_' . $name} = $value;
+        }
+    }
+
     public function create(): bool
     {
         $sql = 'INSERT INTO comments (content, creation_date, user_id, article_id) VALUES (:content, NOW(), :user_id, :article_id)';
@@ -58,6 +69,21 @@ class Comment
         $update->bindParam(':content', $this->_content);
 
         return $update->execute();
+    }
+
+    public static function getCommentsByArticle($article_id)
+    {
+        $sql = 'SELECT * FROM comments WHERE article_id = :article_id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':article_id', $article_id, PDO::PARAM_INT);
+
+        if ($select->execute()) {
+            return $select->fetchAll(PDO::FETCH_CLASS, 'Comment');
+        } else {
+            throw new Exception('Erreur dans la récupération des commentaires');
+        }
     }
 
     public function delete(): bool
