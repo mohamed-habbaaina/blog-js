@@ -80,7 +80,7 @@ class Article
         // return $test->fetchColumn();
     }
 
-    public function create()
+    public function create(): bool
     {
         $sql = 'INSERT INTO articles (title, content, creation_date, user_id, category_id) VALUES (:title, :content, NOW(), :user_id, :category_id)';
 
@@ -91,7 +91,7 @@ class Article
         $insert->bindParam(':user_id', $this->_user_id);
         $insert->bindParam(':category_id', $this->_category_id);
 
-        $insert->execute();
+        return $insert->execute();
     }
 
     /**
