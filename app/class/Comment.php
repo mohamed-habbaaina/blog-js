@@ -36,7 +36,12 @@ class Comment
     {
     }
 
-    public function __set($name, $value)
+    /**
+     * format properties names using field names from database
+     * properties names must start by an underscord "_"
+     * if DateTime() values are not null in database they are parsed with DateTime class
+     */
+    public function __set($name, $value): void
     {
         if ($name === 'creation_date' || $name === 'edit_date' && $value !== null) {
             $value = new DateTime($value);
@@ -47,6 +52,9 @@ class Comment
         }
     }
 
+    /**
+     * @return bool depending if request is successfull or not
+     */
     public function create(): bool
     {
         $sql = 'INSERT INTO comments (content, creation_date, user_id, article_id) VALUES (:content, NOW(), :user_id, :article_id)';
@@ -60,6 +68,9 @@ class Comment
         return $insert->execute();
     }
 
+    /**
+     * @return bool depending if request is successfull or not
+     */
     public function update(): bool
     {
         $sql = 'UPDATE comments SET content = :content, edit_date = NOW()';
@@ -71,7 +82,11 @@ class Comment
         return $update->execute();
     }
 
-    public static function getCommentsByArticle($article_id)
+    /**
+     * @param int $article_id used used in Article class with its $_id property
+     * @return array of Comment objects
+     */
+    public static function getCommentsByArticle(int $article_id)
     {
         $sql = 'SELECT * FROM comments WHERE article_id = :article_id';
 
