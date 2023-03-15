@@ -25,11 +25,11 @@ $_SESSION['page'] = $page;
 
     <main>
         <div class="pages">
-            <button><a href="blog.php?page=<?php echo $page +1 ?>">Page suivante</a></button>
+            <button><a href="blog.php?page=<?php echo $page +1 ?>" id="btnSuivant">Page suivante</a></button>
             <button><a href="blog.php?page=<?php echo $page -1 ?>">Page précédente</a></button>
         </div>
 
-        
+         
         <div class="blog">
             
                 <!-- Display Fetch JS -->
