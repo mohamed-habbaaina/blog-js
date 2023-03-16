@@ -13,7 +13,7 @@ $article->setId($_GET['id']);
 
 try {
     $article->get();
-    var_dump($article);
+    // var_dump($article);
 } catch (Exception $e) {
     echo '<h1>' . $e->getMessage() . '</h1>';
     die();

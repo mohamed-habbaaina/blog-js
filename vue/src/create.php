@@ -27,7 +27,7 @@ var_dump($_POST, $_SESSION);
 
     <main>
 
-        <form action="./../../app/controller/create.php" method="post" id="formCreateArticle">
+        <form enctype="multipart/form-data" action="./../../app/controller/create.php" method="post" id="formCreateArticle">
 
             <h1>Nouvel Article</h1>
 
@@ -46,6 +46,10 @@ var_dump($_POST, $_SESSION);
             
             <label for="content">Contenu</label>
             <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"></textarea>
+            <small></small>
+
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image">
             <small></small>
 
             <button name="submit" type="submit">Publier</button>
