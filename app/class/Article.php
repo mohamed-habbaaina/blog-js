@@ -256,7 +256,7 @@ class Article
     /**
      * Get the value of image
      */
-    public function getImage(): string
+    public function getImage(): ?string
     {
         return $this->_image;
     }
