@@ -1,5 +1,20 @@
 <?php
-require_once './../../app/controller/article.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'article.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
+
+session_start();
+
+$article = new Article();
+
+$article->setId($_GET['id']);
+
+try {
+    $article->get();
+    // var_dump($article);
+} catch (Exception $e) {
+    echo '<h1>' . $e->getMessage() . '</h1>';
+    die();
+}
 
 $comments = $article->getComments();
 
