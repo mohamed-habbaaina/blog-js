@@ -10,7 +10,7 @@ $category = htmlspecialchars(trim($_POST['category']), ENT_QUOTES);
 
 // var_dump($title, $content, $category);
 
-if (!empty($title) || !empty($content) || !empty($category)) {
+if (!empty($title) && !empty($content) && !empty($category)) {
     $article = new Article();
 
     $article->setTitle($title)
