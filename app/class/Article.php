@@ -123,11 +123,12 @@ class Article
 
         $select->execute();
 
-        $article = $select->fetch(PDO::FETCH_ASSOC);
+        $article = $select->fetch(PDO::FETCH_ASSOC); // use PDO::FETCH_CLASS to hydrate instance?
 
         if ($article) {
             $this->_title = $article['title'];
             $this->_content = $article['content'];
+            $this->_image = $article['image'];
             $this->_creation_date = new DateTime($article['creation_date']);
             $this->_edit_date = isset($article['edit_date']) ? new DateTime($article['edit_date']) : null;
             $this->_user_id = $article['user_id'];
