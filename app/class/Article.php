@@ -21,6 +21,11 @@ class Article
     private string $_content;
     
     /**
+     * @var ?string article image, blob
+     */
+    private ?string $_image = null;
+
+    /**
      * @var DateTime article creation date 
      */
     private DateTime $_creation_date;
@@ -83,12 +88,13 @@ class Article
 
     public function create(): bool
     {
-        $sql = 'INSERT INTO articles (title, content, creation_date, user_id, category_id) VALUES (:title, :content, NOW(), :user_id, :category_id)';
+        $sql = 'INSERT INTO articles (title, content, image, creation_date, user_id, category_id) VALUES (:title, :content, :image, NOW(), :user_id, :category_id)';
 
         $insert = DbConnection::getDb()->prepare($sql);
 
         $insert->bindParam(':title', $this->_title);
         $insert->bindParam(':content', $this->_content);
+        $insert->bindParam(':image', $this->_image);
         $insert->bindParam(':user_id', $this->_user_id);
         $insert->bindParam(':category_id', $this->_category_id);
 
@@ -242,6 +248,24 @@ class Article
     public function setContent(string $content): self
     {
         $this->_content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of image
+     */
+    public function getImage(): string
+    {
+        return $this->_image;
+    }
+
+    /**
+     * Set the value of image
+     */
+    public function setImage(?string $image): self
+    {
+        $this->_image = $image;
 
         return $this;
     }
