@@ -4,6 +4,8 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY
 
 session_start();
 
+// var_dump($_SESSION);
+
 $article = new Article();
 
 $article->setId($_GET['id']);
@@ -53,12 +55,14 @@ $comments = $article->getComments();
             <?php endif ?>
         </article>
 
-        <section id="new-comment">
-            <form action="" method="post">
-                <label for="add-comment">Ajouter un commentaire</label>
-                <textarea name="add-comment" id="add-comment" cols="30" rows="10"></textarea>
-            </form>
-        </section>
+        <?php if (isset($_SESSION['id'])): ?>
+            <section id="new-comment">
+                <form action="" method="post">
+                    <label for="add-comment">Ajouter un commentaire</label>
+                    <textarea name="add-comment" id="add-comment" cols="30" rows="10"></textarea>
+                </form>
+            </section>
+        <?php endif ?>
 
         <section id="comments">
             <?php foreach ($comments as $comment) : ?>
