@@ -48,15 +48,42 @@ if(isset($_GET['idArticle'])){
         <div>
 
             <div class="adminUsers">
+
+                <h2>Géré les utilisateurs</h2>
+            
                 <!--  Display table users  -->
                 
             </div>
 
             <div class="adminArticles">
+
+            <h2>Géré les articles</h2>
+
                 <!--  Display table articles  -->
 
 
             </div>
+
+            <div class="adminCategory">
+
+            <h2>Ajouter une catégorie</h2>
+
+                <!--  Display form category  -->
+
+                <form action="" method="post" id="adminCategory">
+
+                    <label for="name">Nom de la catégorie</label>
+                    <input type="text" name="name">
+
+                    <label for="description">Description</label>
+                    <input type="textarea" name="description">
+
+                    <button>Valider</button>
+
+                </form>
+
+            </div>
+
         </div>
     </main>
 
