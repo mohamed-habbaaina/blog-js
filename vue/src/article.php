@@ -60,6 +60,7 @@ $comments = $article->getComments();
                 <form action="" method="post">
                     <label for="add-comment">Ajouter un commentaire</label>
                     <textarea name="add-comment" id="add-comment" cols="30" rows="10"></textarea>
+                    <button type="submit" name="submit-comment">Envoyer</button>
                 </form>
             </section>
         <?php endif ?>
