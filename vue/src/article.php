@@ -53,6 +53,13 @@ $comments = $article->getComments();
             <?php endif ?>
         </article>
 
+        <section id="new-comment">
+            <form action="" method="post">
+                <label for="add-comment">Ajouter un commentaire</label>
+                <textarea name="add-comment" id="add-comment" cols="30" rows="10"></textarea>
+            </form>
+        </section>
+
         <section id="comments">
             <?php foreach ($comments as $comment) : ?>
                 <?php $author = $comment->getAuthor() ?>
