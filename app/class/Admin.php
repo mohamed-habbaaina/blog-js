@@ -33,6 +33,13 @@ public function getAllArticles(): array
     return $dataArticl->fetchAll(PDO::FETCH_ASSOC);
 }
 
+public function deleteArticle(int $id) : void
+{
+    $reqDeAr = "DELETE FROM `articles` WHERE id=:id";
+    $reqDelArticle = DbConnection::getDb()->prepare($reqDeAr);
+    $reqDelArticle->bindParam(':id', $id);
+    $reqDelArticle->execute();
+}
 
 /**
  * update the user's role
