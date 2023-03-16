@@ -39,7 +39,7 @@ class Comment
     /**
      * format properties names using field names from database
      * properties names must start by an underscord "_"
-     * if DateTime() values are not null in database they are parsed with DateTime class
+     * if DateTime() values are not null in database, they are parsed with DateTime class before being defined as properties
      */
     public function __set($name, $value): void
     {
@@ -73,11 +73,12 @@ class Comment
      */
     public function update(): bool
     {
-        $sql = 'UPDATE comments SET content = :content, edit_date = NOW()';
+        $sql = 'UPDATE comments SET content = :content, edit_date = NOW() WHERE id = :id';
 
         $update = DbConnection::getDb()->prepare($sql);
 
         $update->bindParam(':content', $this->_content);
+        $update->bindParam(':id', $this->_id, PDO::PARAM_INT);
 
         return $update->execute();
     }
