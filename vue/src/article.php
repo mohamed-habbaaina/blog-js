@@ -29,7 +29,7 @@ $comments = $article->getComments();
 
             <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
 
-            <p>Écrit par <b><?= $article->getAuthor()['username'] ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
+            <p>Article écrit par <b><?= $article->getAuthor()['username'] ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
 
             <p><?= $article->getContent() ?></p>
 
@@ -42,7 +42,7 @@ $comments = $article->getComments();
             <?php foreach ($comments as $comment) : ?>
                 <?php $author = $comment->getAuthor() ?>
                 <div class="comment">
-                    <p>Écrit par <b><?= $author['username'] ?></b> le le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
+                    <p>Commentaire écrit par <b><?= $author['username'] ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
                     <p><?= $comment->getContent() ?></p>
                 </div>
             <?php endforeach ?>
