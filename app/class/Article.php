@@ -1,6 +1,7 @@
 <?php
 
 require_once 'DbConnection.php';
+require_once 'Comment.php';
 
 class Article
 {
@@ -176,6 +177,15 @@ class Article
     public static function getAllArticles()
     {
 
+    }
+
+    public function getComments()
+    {
+        try {
+            return Comment::getCommentsByArticle($this->_id);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
     }
 
     /**
