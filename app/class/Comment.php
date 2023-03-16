@@ -102,6 +102,22 @@ class Comment
         }
     }
 
+    /**
+     * @return array author name & role using $_user_id property
+     */
+    public function getAuthor()
+    {
+        $sql = 'SELECT username, role FROM users WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $this->_user_id);
+
+        $select->execute();
+
+        return $select->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function delete(): bool
     {
         $sql = 'DELETE FROM comments WHERE id = :id';
