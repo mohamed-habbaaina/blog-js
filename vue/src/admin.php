@@ -5,17 +5,24 @@ require_once('./../../app/class/Admin.php');
 
 $admin = new Admin();
 
+$mess = [];
 
 if(isset($_GET['username'])){
     
     $username = $_GET['username'];
     $admin->deleteUser($username);
 
+    $mess[] = "Vous avez supprimé l'utilisateur $username !";
+
 }
+
 if(isset($_GET['idArticle'])){
     
     $idArticle = $_GET['idArticle'];
+    $title = $_GET['title'];
     $admin->deleteArticle($idArticle);
+
+    $mess[] = "Vous avez supprimé l'article $title !";
 
 }
 
@@ -45,8 +52,21 @@ if(isset($_GET['idArticle'])){
             <button>Catégorie d'articles</button>
         </div>
         
-        <div>
+        <div style="background-color:aqua">
 
+        <?php
+                if(isset($mess)):
+
+                    foreach ($mess as $value) {
+
+                        echo $value;
+                    }
+
+                endif;                    
+            ?>
+        </div>
+
+        <div>
             <div class="adminUsers">
 
                 <h2>Géré les utilisateurs</h2>
@@ -66,21 +86,21 @@ if(isset($_GET['idArticle'])){
 
             <div class="adminCategory">
 
-            <h2>Ajouter une catégorie</h2>
-
                 <!--  Display form category  -->
-
-                <form action="" method="post" id="adminCategory">
-
-                    <label for="name">Nom de la catégorie</label>
-                    <input type="text" name="name">
-
-                    <label for="description">Description</label>
-                    <input type="textarea" name="description">
-
-                    <button>Valider</button>
-
-                </form>
+                
+                <!-- <h2>Ajouter une catégorie</h2> -->
+<!--  -->
+                <!-- <form action="#" method="post" id="adminCategory"> -->
+<!--  -->
+                    <!-- <label for="name">Nom de la catégorie</label> -->
+                    <!-- <input type="text" name="namecategorie"> -->
+<!--  -->
+                    <!-- <label for="description"></label> -->
+                    <!-- <textarea name="description">Description</textarea> -->
+<!--  -->
+                    <!-- <button>Valider</button> -->
+<!--  -->
+                <!-- </form> -->
 
             </div>
 
