@@ -1,8 +1,23 @@
 <?php
-require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'article.php';
+// require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'article.php';
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
 
 session_start();
+
+// if (isset($_POST['submit-comment'])) {
+//     $add_comment = new Comment();
+    
+//     $content = htmlspecialchars(trim($_POST['comment-content']), ENT_QUOTES);
+//     $article_id = htmlspecialchars(trim($_POST['article-id']), ENT_QUOTES);
+
+//     if (!empty($content) && !empty($article_id)) {
+//         $add_comment->setContent($content)
+//             ->setArticleId($article_id)
+//             ->setUserId($_SESSION['id'])
+//             ->create();
+//     }
+
+// }
 
 // var_dump($_SESSION);
 
@@ -57,9 +72,10 @@ $comments = $article->getComments();
 
         <?php if (isset($_SESSION['id'])): ?>
             <section id="new-comment">
-                <form action="" method="post">
-                    <label for="add-comment">Ajouter un commentaire</label>
-                    <textarea name="add-comment" id="add-comment" cols="30" rows="10"></textarea>
+                <form action="./../../app/controller/article.php" method="post">
+                    <label for="comment-content">Ajouter un commentaire</label>
+                    <textarea name="comment-content" id="comment-content" cols="30" rows="10"></textarea>
+                    <input type="hidden" name="article-id" value="<?= $article->getId() ?>">
                     <button type="submit" name="submit-comment">Envoyer</button>
                 </form>
             </section>
