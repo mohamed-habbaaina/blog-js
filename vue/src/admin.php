@@ -5,19 +5,41 @@ require_once('./../../app/class/Admin.php');
 
 $admin = new Admin();
 
+$mess = [];
 
 if(isset($_GET['username'])){
     
     $username = $_GET['username'];
     $admin->deleteUser($username);
 
+    $mess[] = "Vous avez supprimé l'utilisateur $username !";
+
 }
+
 if(isset($_GET['idArticle'])){
     
     $idArticle = $_GET['idArticle'];
+    $title = $_GET['title'];
     $admin->deleteArticle($idArticle);
 
+    $mess[] = "Vous avez supprimé l'article $title !";
+
 }
+
+// var_dump($_POST);
+
+if(isset($_POST['namecategorie']) && isset($_POST['description'])):
+    
+    $name = $admin->isValid($_POST['namecategorie']);
+    $description = $admin->validText($_POST['description']);
+
+    $admin->insertCaregory($name, $description);
+
+    $mess[] = "La catégorie $name a été bien enregistrée !";
+
+
+endif;
+    
 
 
 ?>
@@ -42,47 +64,53 @@ if(isset($_GET['idArticle'])){
         <div class="btnAdmin">
             <button>Users</button>
             <button>Articles</button>
-            <button>Catégorie d'articles</button>
         </div>
         
-        <div>
+        <div style="background-color:aqua">
 
+        <?php
+
+            // display message PHP.
+                if(isset($mess)):
+
+                    foreach ($mess as $value) {
+
+                        echo $value;
+                    }
+
+                endif;                    
+            ?>
+        </div>
+
+        <div class="container">
+
+            <div class="adminCategory">
+
+            <h2>Ajouter une catégorie</h2>
+
+                <form action="#" method="post" id="formCategory">
+                    <label for="name">Nom de la catégorie</label>
+                    <input type="text" name="namecategorie">
+                    <small></small>
+                    <label for="description"></label>
+                    <textarea name="description"></textarea>
+                    <small></small>
+                    <button>Valider</button>
+                </form>
+                
+            </div>
             <div class="adminUsers">
 
-                <h2>Géré les utilisateurs</h2>
-            
                 <!--  Display table users  -->
                 
             </div>
 
             <div class="adminArticles">
 
-            <h2>Géré les articles</h2>
-
                 <!--  Display table articles  -->
 
-
             </div>
 
-            <div class="adminCategory">
-
-            <h2>Ajouter une catégorie</h2>
-
-                <!--  Display form category  -->
-
-                <form action="" method="post" id="adminCategory">
-
-                    <label for="name">Nom de la catégorie</label>
-                    <input type="text" name="name">
-
-                    <label for="description">Description</label>
-                    <input type="textarea" name="description">
-
-                    <button>Valider</button>
-
-                </form>
-
-            </div>
 
         </div>
     </main>

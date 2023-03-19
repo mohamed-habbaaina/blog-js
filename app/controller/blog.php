@@ -13,4 +13,5 @@ $offset = ($page - 1) * $numberArticl;
 
 $blog = new Blog();
 $dataBlog = $blog->getBlog($offset);
-echo (json_encode($dataBlog));
+
+echo json_encode($dataBlog);
