@@ -26,6 +26,21 @@ if(isset($_GET['idArticle'])){
 
 }
 
+// var_dump($_POST);
+
+if(isset($_POST['namecategorie']) && isset($_POST['description'])):
+    
+    $name = $admin->isValid($_POST['namecategorie']);
+    $description = $admin->validText($_POST['description']);
+
+    $admin->insertCaregory($name, $description);
+
+    $mess[] = "La catégorie $name a été bien enregistrée !";
+
+
+endif;
+    
+
 
 ?>
 <!DOCTYPE html>
@@ -49,12 +64,13 @@ if(isset($_GET['idArticle'])){
         <div class="btnAdmin">
             <button>Users</button>
             <button>Articles</button>
-            <button>Catégorie d'articles</button>
         </div>
         
         <div style="background-color:aqua">
 
         <?php
+
+            // display message PHP.
                 if(isset($mess)):
 
                     foreach ($mess as $value) {
@@ -66,43 +82,35 @@ if(isset($_GET['idArticle'])){
             ?>
         </div>
 
-        <div>
+        <div class="container">
+
+            <div class="adminCategory">
+
+            <h2>Ajouter une catégorie</h2>
+
+                <form action="#" method="post" id="formCategory">
+                    <label for="name">Nom de la catégorie</label>
+                    <input type="text" name="namecategorie">
+                    <small></small>
+                    <label for="description"></label>
+                    <textarea name="description"></textarea>
+                    <small></small>
+                    <button>Valider</button>
+                </form>
+                
+            </div>
             <div class="adminUsers">
 
-                <h2>Géré les utilisateurs</h2>
-            
                 <!--  Display table users  -->
                 
             </div>
 
             <div class="adminArticles">
 
-            <h2>Géré les articles</h2>
-
                 <!--  Display table articles  -->
 
-
             </div>
 
-            <div class="adminCategory">
-
-                <!--  Display form category  -->
-                
-                <!-- <h2>Ajouter une catégorie</h2> -->
-<!--  -->
-                <!-- <form action="#" method="post" id="adminCategory"> -->
-<!--  -->
-                    <!-- <label for="name">Nom de la catégorie</label> -->
-                    <!-- <input type="text" name="namecategorie"> -->
-<!--  -->
-                    <!-- <label for="description"></label> -->
-                    <!-- <textarea name="description">Description</textarea> -->
-<!--  -->
-                    <!-- <button>Valider</button> -->
-<!--  -->
-                <!-- </form> -->
-
-            </div>
 
         </div>
     </main>
