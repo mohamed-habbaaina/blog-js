@@ -36,7 +36,7 @@ class User
      * method of securing inputs
      * @return string.
      */
-    public function isValid(string $input)
+    public function isValid(string $input): string
     {
 
         $input = trim($input);
@@ -50,7 +50,7 @@ class User
      * Check DB where username = 
     * @return ?array[0]["$data"]
     */
-    public function check_DB($username)
+    public function check_DB($username): ?array
     {
 
         $requestCheck = "SELECT * FROM `users` WHERE username=:username";
@@ -63,7 +63,7 @@ class User
     /**
      * Register the user in the database.
      */
-    public function register($email, $username, $password)
+    public function register($email, $username, $password): void
     {
 
         if(empty($this->check_DB($username))):
@@ -93,7 +93,7 @@ class User
      * @return  true,false
      */
 
-    public function connection($username, $password)
+    public function connection($username, $password): bool
     {
 
         $data = $this->check_DB($username);
@@ -120,7 +120,7 @@ class User
      * getter id
      * @return int
      */
-    public function getId($username)
+    public function getId($username): int
     {
         $data = $this->check_DB($username);
 
@@ -131,7 +131,7 @@ class User
      * getter Role
      * @return string
      */
-    public function getRole($username)
+    public function getRole($username): string
     {
         $data = $this->check_DB($username);
 
@@ -141,8 +141,8 @@ class User
     /**
     * @return true,false
     */
-    public function isConnected(){
-
+    public function isConnected(): bool
+    {
         if(isset($_SESSION['role'])):
             return true;
         else:
@@ -153,8 +153,8 @@ class User
     /**
      * Destroy all variables of the current session, and Destroy the current session
      */
-    public function deconnect(){
-        
+    public function deconnect(): void
+    {
         $_SESSION = array(); 
         session_unset();
         session_destroy();
