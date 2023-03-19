@@ -69,13 +69,20 @@ public function updateRole(string $username, string $role): void
  */
 public function insertCaregory(string $name, string $description) : void
 {
-    $reqIns = "INSERT INTO `categories`(`name`, `description`) VALUES (':name', ':description')";
+    $reqIns = "INSERT INTO `categories`(`name`, `description`) VALUES (:name, :description)";
     $reqInserCategory = DbConnection::getDb()->prepare("$reqIns");
     $reqInserCategory->bindParam(':name', $name);
     $reqInserCategory->bindParam(':description', $description);
     $reqInserCategory->execute();
 }
 
+public function validText($text)
+{
+    $text = trim($text);
+    $text = htmlspecialchars($text);
+    return DbConnection::getDb()->quote($text);
+
+}
 
 public function getUsername($username)
 {
@@ -92,3 +99,9 @@ public function getResisterDate($username)
 
 
 }
+
+$admin = new Admin();
+
+// var_dump($admin->validText('allo <br>'));
+// echo '<br>';
+// var_dump($admin->validText('allo c\'est moi'));
