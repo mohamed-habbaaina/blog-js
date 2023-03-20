@@ -193,6 +193,7 @@ async function displayUsers(e)
     // display html.
     adminUsers.insertAdjacentHTML('beforeend', html);
 
+
     //******************** Update Role User *********************/
     // **********************************************************/
     let usersTD = document.querySelectorAll('td.users');
@@ -275,7 +276,7 @@ fetch('./../../app/controller/adminArticle.php', {
                     <td>${item.creation_date}</td>
                     <td>${item.username}</td>
                     <td>
-                        <a href="admin.php?idArticle=${item.id}&title=${item.title}">Delete</a>
+                        <a href="admin.php?idArticle=${item.id}&title=${item.title}" class="deleteUser">Delete</a>
                     </td>
                         
                 </tr>
@@ -287,7 +288,7 @@ fetch('./../../app/controller/adminArticle.php', {
             `
     // display html.
             adminArticles.insertAdjacentHTML('beforeend', html);
-    
+
     })
 }
 

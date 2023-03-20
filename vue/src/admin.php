@@ -7,14 +7,14 @@ $admin = new Admin();
 
 $mess = [];
 
-if(isset($_GET['username'])){
+// if(isset($_GET['username'])){
     
-    $username = $_GET['username'];
-    $admin->deleteUser($username);
+//     $username = $_GET['username'];
+//     $admin->deleteUser($username);
 
-    $mess[] = "Vous avez supprimé l'utilisateur $username !";
+//     $mess[] = "Vous avez supprimé l'utilisateur $username !";
 
-}
+// }
 
 if(isset($_GET['idArticle'])){
     
