@@ -20,9 +20,15 @@ if (isset($_POST['submit-comment'])) {
             ->setUserId($_SESSION['id']);
 
         if($add_comment->create()) {
-            header("HTTP/1.1 201 Created");
-            header('Refresh: 0; url=../../vue/src/article.php?id=' . $article_id);
-            die();
+            // header("HTTP/1.1 201 Created");
+            // header('Refresh: 0; url=../../vue/src/article.php?id=' . $article_id);
+            header('Location: ../../vue/src/article.php?id=' . $article_id);
+            // http_response_code(201);
+            // die();
+            // var_dump(http_response_code());
+            // if (http_response_code() === 201) {
+            // }
+            // die();
         }
     }
 }
