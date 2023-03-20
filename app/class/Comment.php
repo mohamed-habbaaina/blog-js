@@ -91,7 +91,7 @@ class Comment
      */
     public static function getCommentsByArticle(int $article_id)
     {
-        $sql = 'SELECT * FROM comments WHERE article_id = :article_id';
+        $sql = 'SELECT * FROM comments WHERE article_id = :article_id ORDER BY creation_date DESC';
 
         $select = DbConnection::getDb()->prepare($sql);
 
