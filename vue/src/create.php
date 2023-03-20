@@ -4,10 +4,20 @@ require_once dirname(dirname(__DIR__)) . '/app/class/Category.php';
 
 session_start();
 
+// var_dump($_POST, $_SESSION);
+
+if (!isset($_SESSION['id'])) {
+    http_response_code(403);
+    header('Location: connect.php');
+    die();
+} elseif ($_SESSION['role'] !== 'admin' || $_SESSION['role'] !== 'moderator') {
+    http_response_code(403);
+    header('Location: blog.php');
+    die();
+}
+
 // categories from database used for select article category with select & option html elements
 $categories = Category::getAll();
-
-var_dump($_POST, $_SESSION);
 
 ?>
 
