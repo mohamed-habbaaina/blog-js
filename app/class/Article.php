@@ -14,12 +14,12 @@ class Article
      * @var string article title
      */
     private string $_title;
-    
+
     /**
      * @var string article content
      */
     private string $_content;
-    
+
     /**
      * @var ?string article image, blob
      */
@@ -29,17 +29,17 @@ class Article
      * @var DateTime article creation date 
      */
     private DateTime $_creation_date;
-    
+
     /**
      * @var DateTime optional, article modification date
      */
     private ?DateTime $_edit_date = null;
-    
+
     /**
      * @var int article author / owner id, from users
      */
     public int $_user_id;
-    
+
     /**
      * @var int category id of article, from categories
      */

@@ -21,11 +21,22 @@ function get_image_file($image_file)
             $image_infos = pathinfo($image_file['name']);
 
             $image_extension = $image_infos['extension'];
-            
+
             $extensions_array = ['png', 'gif', 'jpg', 'jpeg', 'webp'];
-            
+
             if (in_array($image_extension, $extensions_array)) {
-                return file_get_contents($image_file['tmp_name']);
+                // $image_name = time() . rand() . time();
+                $image_name = 'article_thumbnail_' . Article::getLastIdByUserId($_SESSION['id']) . '.' . $image_infos['extension'];
+                $image_path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'article_thumbnail' . DIRECTORY_SEPARATOR . $image_name;
+                // var_dump($image_name);
+                // var_dump($image_file);
+                // var_dump($image_path);
+                if(move_uploaded_file($image_file['tmp_name'], $image_path)) {
+                    return $image_name;
+                }
+                // return file_get_contents($image_file['tmp_name']);
+                // return file_get_contents(imagejpeg(imagecreatefromstring(file_get_contents($image_file['tmp_name'])), 'article.jpg'));
+
             } else {
                 $extensions_string = '';
 
@@ -36,7 +47,6 @@ function get_image_file($image_file)
                         $extensions_string .= $extension . ', ';
                     }
                 }
-
                 throw new Exception('Format du fichier non accepté. Formats acceptés : ' . $extensions_string);
             }
         }
@@ -56,10 +66,10 @@ if (!empty($title) && !empty($content) && !empty($category)) {
             ->setImage($image)
             ->setCategoryId($category)
             ->setUserId($_SESSION['id']);
-    
+
         if ($article->create()) {
             header("HTTP/1.1 201 Created");
-            header('Refresh: 0; url=../../vue/src/blog.php');
+            // header('Refresh: 0; url=../../vue/src/blog.php');
             die();
         }
     } catch (Exception $e) {

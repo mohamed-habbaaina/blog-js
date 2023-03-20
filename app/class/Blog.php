@@ -16,15 +16,7 @@ class Blog extends Article
 
         $selectBlog->execute();
         $articles= $selectBlog->fetchAll(PDO::FETCH_ASSOC);
-        foreach($articles as $key => $article){
 
-            // encode image for JSON
-            if (isset($article['image'])) {
-
-                $article['image'] = base64_encode($article['image']);
-                $articles[$key] = $article;
-            }
-        }
         return $articles;
     }
 }
