@@ -196,6 +196,23 @@ class Article
     }
 
     /**
+     * @param int $id representing user id
+     * @return int id of last article created, by user id
+     * used to link article to thumbnail image
+     */
+    public static function getLastIdByUserId($user_id) {
+        $sql = 'SELECT id FROM articles WHERE creation_date = (SELECT MAX(creation_date) FROM articles WHERE user_id = :user_id)';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+        if ($select->execute()) {
+            return $select->fetchColumn();
+        }
+    }
+
+    /**
      * Get the value of id
      */
     public function getId(): int
