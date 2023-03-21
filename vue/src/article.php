@@ -67,7 +67,7 @@ $comments = $article->getComments();
             <p><?= $article->getContent() ?></p>
 
             <?php if ($article->getImage() !== null) : ?>
-                <img src="data:image/jpeg;base64, <?= base64_encode($article->getImage()) ?>" alt="article image">
+                <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article image">
             <?php endif ?>
         </article>
 
