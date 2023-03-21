@@ -32,7 +32,9 @@ class Category
 
     public function __set($name, $value)
     {
-        $this->{'_' . $name} = $value;
+        if ($name[0] != '_') {
+            $this->{'_' . $name} = $value;
+        }
     }
 
     public function create()
