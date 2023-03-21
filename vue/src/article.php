@@ -86,7 +86,7 @@ $comments = $article->getComments();
             <?php foreach ($comments as $comment) : ?>
                 <?php $author = $comment->getAuthor() ?>
                 <div class="comment">
-                    <p>Commentaire écrit par <b><?= $author['username'] ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
+                    <p>Commentaire écrit par <b><?= $author ? $author['username'] : 'utilisateur supprimé' ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
                     <p><?= $comment->getContent() ?></p>
                 </div>
             <?php endforeach ?>

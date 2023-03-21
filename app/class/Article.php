@@ -36,7 +36,7 @@ class Article
     private ?DateTime $_edit_date = null;
 
     /**
-     * @var ?int article author / owner id, from users, stay null if user is deleted
+     * @var ?int article author / owner id, from users, stays null if user is deleted
      */
     public ?int $_user_id = null;
 
