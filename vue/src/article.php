@@ -74,6 +74,10 @@ $comments = $article->getComments();
         <article>
             <h1><?= $article->getTitle() ?></h1>
 
+            <?php if ($_SESSION['id'] === $article->getId() || $_SESSION['role'] === 'admin'): ?>
+                <button id="edit">edit</button>
+            <?php endif ?>
+
             <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
 
             <p>Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
