@@ -26,11 +26,14 @@ session_start();
 
 // var_dump($id);
 // var_dump(intval($id));
+// var_dump(is_int($id));
+// var_dump(is_numeric($id));
+// var_dump(preg_match('/^\d+$/', $id));
 
 $article = new Article();
 
 
-if (is_int($_GET['id']) && intval($_GET['id']) > 0) {
+if (preg_match('/^\d+$/', $_GET['id'])) {
     $article->setId($_GET['id']);
 } else {
     $article->setId(0);
