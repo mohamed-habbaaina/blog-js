@@ -41,7 +41,7 @@ try {
     $article->get();
     // var_dump($article);
 } catch (Exception $e) {
-    echo '<h1>' . $e->getMessage() . '</h1>';
+    echo '<h1>' . $e->getMessage() . '</h1><a href="blog.php">retour au blog</a>';
     die();
 }
 
