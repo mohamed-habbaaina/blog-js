@@ -18,6 +18,8 @@ if (isset($_POST['password']) && isset($_POST['username'])){
         // stored id and role in $_SESSIO
         $_SESSION['id'] = $user->getId($username);
         $_SESSION['role'] = $user->getRole($username);
+        $_SESSION['username'] = $username;
+
 
 
         //  change statusText HTTP.
