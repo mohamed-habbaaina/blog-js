@@ -31,14 +31,14 @@ class Article
     private DateTime $_creation_date;
 
     /**
-     * @var DateTime optional, article modification date
+     * @var ?DateTime optional, article modification date
      */
     private ?DateTime $_edit_date = null;
 
     /**
-     * @var int article author / owner id, from users
+     * @var ?int article author / owner id, from users, stay null if user is deleted
      */
-    public int $_user_id;
+    public ?int $_user_id = null;
 
     /**
      * @var int category id of article, from categories
@@ -150,6 +150,8 @@ class Article
         $select->bindParam(':id', $this->_user_id);
 
         $select->execute();
+
+        // var_dump($select->fetch(PDO::FETCH_ASSOC));
 
         return $select->fetch(PDO::FETCH_ASSOC);
     }
