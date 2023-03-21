@@ -1,7 +1,15 @@
 <?php
 session_start();
 require_once './../class/Profil.php';
+
 $profil = new Profil();
+
+if (!$profil->isInDb($_SESSION['id'])) {
+    $profil->deconnect();
+    http_response_code(404);
+    // header('Location: ../../public/index.php');
+    die();
+}
 
 if (isset($_POST['username'])){
 
