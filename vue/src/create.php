@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(dirname(__DIR__)) . '/app/class/Category.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Category.php';
 
 session_start();
 
@@ -10,7 +10,7 @@ if (!isset($_SESSION['id'])) {
     http_response_code(403);
     header('Location: connect.php');
     die();
-} elseif ($_SESSION['role'] !== 'admin' || $_SESSION['role'] !== 'moderator') {
+} elseif ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'moderator') {
     http_response_code(403);
     header('Location: blog.php');
     die();
