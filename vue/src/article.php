@@ -21,10 +21,21 @@ session_start();
 // }
 
 // var_dump($_SESSION);
+// var_dump($_GET);
+// $id = $_GET['id'];
+
+// var_dump($id);
+// var_dump(intval($id));
 
 $article = new Article();
 
-$article->setId($_GET['id']);
+
+if (is_int($_GET['id']) && intval($_GET['id']) > 0) {
+    $article->setId($_GET['id']);
+} else {
+    $article->setId(0);
+}
+
 
 try {
     $article->get();
