@@ -1,8 +1,17 @@
 <?php
 require_once dirname(__DIR__) . '/class/Article.php';
 require_once dirname(__DIR__) . '/class/Category.php';
+require_once dirname(__DIR__) . '/class/User.php';
 
 session_start();
+
+$logged_user = new \User\User();
+
+if (!$logged_user->isInDb($_SESSION['id'])) {
+    $logged_user->deconnect();
+    header('Location: ../../public/index.php');
+    die();
+}
 
 $title = htmlspecialchars(trim($_POST['title']), ENT_QUOTES);
 $content = htmlspecialchars(trim($_POST['content']), ENT_QUOTES);
