@@ -1,6 +1,8 @@
 <?php
 namespace User;
 
+use DbConnection;
+
 // use DbConnection;
 
 // var_dump(__DIR__);
@@ -159,5 +161,22 @@ class User
         session_unset();
         session_destroy();
     }
-    
+
+    /**
+     * check if user is in database
+     * can be used to test if logged user still exists in database
+     * @param int $id representing user id
+     * @return boolean, depending if the query find the user
+     */
+    public function isInDb(int $id): bool {
+        $sql = 'SELECT COUNT(id) FROM users WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $id, \PDO::PARAM_INT);
+
+        $select->execute();
+
+        return $select->fetchColumn() > 0;
+    }
 }

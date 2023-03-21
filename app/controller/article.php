@@ -1,12 +1,20 @@
 <?php
 
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Comment.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'User.php';
 
 session_start();
 // if (!isset($_GET['id'])) {
     // header('Location: blog.html');
     // die();
 // }
+$logged_user = new \User\User();
+
+if (!$logged_user->isInDb($_SESSION['id'])) {
+    $logged_user->deconnect();
+    header('Location: ../../public/index.php');
+    die();
+}
 
 if (isset($_POST['submit-comment'])) {
     $add_comment = new Comment();

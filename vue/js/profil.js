@@ -140,6 +140,11 @@ formProfil.addEventListener('submit', function(e)
                 alert('Profil Modifier !');
                 window.location = "./blog.php";
             }
+            else if (response.status === 404)
+            {
+                alert('Error: resource not found');
+                window.location = "./blog.php";
+            }
             else
             {
                 alert('Le Username n\'est pas disponible, Veillez le changé !');
@@ -149,5 +154,5 @@ formProfil.addEventListener('submit', function(e)
         {
             alert('Données Invalides !')
         }
-    })           
+    })
 })
