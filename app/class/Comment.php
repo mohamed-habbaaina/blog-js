@@ -25,9 +25,9 @@ class Comment
     private ?DateTime $_edit_date = null;
 
     /**
-     * @var int comment author / owner id, from users
+     * @var ?int comment author / owner id, from users, stays null if user is deleted
      */
-    public int $_user_id;
+    public ?int $_user_id = null;
 
     /**
      * @var int article id of comment, from articles table
@@ -91,7 +91,7 @@ class Comment
      */
     public static function getCommentsByArticle(int $article_id)
     {
-        $sql = 'SELECT * FROM comments WHERE article_id = :article_id';
+        $sql = 'SELECT * FROM comments WHERE article_id = :article_id ORDER BY creation_date DESC';
 
         $select = DbConnection::getDb()->prepare($sql);
 

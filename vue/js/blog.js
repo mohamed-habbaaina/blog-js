@@ -32,16 +32,14 @@ fetch("./../../app/controller/blog.php",{
           // Create div class card
         let html = `
           <div class="card">
-              <img src="data:image/jpeg;base64,${item.image}" alt="${item.title}">
+              <img src="../../uploads/article_thumbnail/${item.image}" alt="${item.title}">
               <h3>${item.title}</h3>
               <div class="author">
               <div>Publier le : ${date.toLocaleString()}</div>
               <div><span>${item.username}</span></div>
           </div>
-  
               <div>
                   <p>${item.content}<a href="article.php?id=${item.id}">...plus</a></p>
-                  
               </div>
           </div>
         `;

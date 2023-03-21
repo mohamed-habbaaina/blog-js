@@ -1,6 +1,7 @@
 <?php
 // require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'article.php';
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Comment.php';
 
 session_start();
 
@@ -61,7 +62,7 @@ $comments = $article->getComments();
 
             <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
 
-            <p>Article écrit par <b><?= $article->getAuthor()['username'] ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
+            <p>Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
 
             <p><?= $article->getContent() ?></p>
 
@@ -85,7 +86,7 @@ $comments = $article->getComments();
             <?php foreach ($comments as $comment) : ?>
                 <?php $author = $comment->getAuthor() ?>
                 <div class="comment">
-                    <p>Commentaire écrit par <b><?= $author['username'] ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
+                    <p>Commentaire écrit par <b><?= $author ? $author['username'] : 'utilisateur supprimé' ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
                     <p><?= $comment->getContent() ?></p>
                 </div>
             <?php endforeach ?>

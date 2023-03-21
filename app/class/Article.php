@@ -14,12 +14,12 @@ class Article
      * @var string article title
      */
     private string $_title;
-    
+
     /**
      * @var string article content
      */
     private string $_content;
-    
+
     /**
      * @var ?string article image, blob
      */
@@ -29,17 +29,17 @@ class Article
      * @var DateTime article creation date 
      */
     private DateTime $_creation_date;
-    
+
     /**
-     * @var DateTime optional, article modification date
+     * @var ?DateTime optional, article modification date
      */
     private ?DateTime $_edit_date = null;
-    
+
     /**
-     * @var int article author / owner id, from users
+     * @var ?int article author / owner id, from users, stays null if user is deleted
      */
-    public int $_user_id;
-    
+    public ?int $_user_id = null;
+
     /**
      * @var int category id of article, from categories
      */
@@ -151,6 +151,8 @@ class Article
 
         $select->execute();
 
+        // var_dump($select->fetch(PDO::FETCH_ASSOC));
+
         return $select->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -192,6 +194,23 @@ class Article
             return Comment::getCommentsByArticle($this->_id);
         } catch (Exception $e) {
             echo $e->getMessage();
+        }
+    }
+
+    /**
+     * @param int $id representing user id
+     * @return int id of last article created, by user id
+     * used to link article to thumbnail image
+     */
+    public static function getLastIdByUserId($user_id) {
+        $sql = 'SELECT id FROM articles WHERE creation_date = (SELECT MAX(creation_date) FROM articles WHERE user_id = :user_id)';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+
+        if ($select->execute()) {
+            return $select->fetchColumn();
         }
     }
 
