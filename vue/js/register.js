@@ -202,7 +202,7 @@
                 }
                 else
                 {
-                    alert('Le Usernane n\'est pas disponible, Veillez le changé !');
+                    alert('Le Username n\'est pas disponible, Veillez le changé !');
                 }
 
             }

@@ -129,65 +129,70 @@ buttonDisplay[1].addEventListener('click', displayArticles);
 
 //************************* Table Users **************************/
 // ***************************************************************/
-async function displayUsers() {
+async function displayUsers(e)
+{
+    // cleared the display
+    adminUsers.innerHTML = '';
+    e.preventDefault();
     
-let reponse = await fetch('./../../app/controller/adminUser.php', {
-method: 'POST',
-headers: {
-  'Accept': 'application/json',
-  'Content-Type': 'application/json'
-},
-body: adminUsers
-});
+    let reponse = await fetch('./../../app/controller/admin.php', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: adminUsers
+    });
 
-let data = await reponse.json();
-// Creation table
-let html = `
-    <h2>Géré les utilisateurs</h2>
-    <table>
-    <thead>
-        <th>Username</th>
-        <th>Register date</th>
-        <th>Role actuel</th>
-        <th>Role</th>
-        <th>Delete</th>
-    </thead>
-    <tbody>
-    
-    `;
-    // creation of td's with user data
-data.forEach(item => {
-    
+    let data = await reponse.json();
+    // Creation table
+    let html = `
+        <h2>Géré les utilisateurs</h2>
+        <table>
+        <thead>
+            <th>Username</th>
+            <th>Register date</th>
+            <th>Role actuel</th>
+            <th>Role</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+
+        `;
+        // creation of td's with user data
+    data.forEach(item => {
+
+        html += `
+
+        <tr>
+        <td>${item.username}</td>
+        <td>${item.register_date}</td>
+        <td>${item.role}</td>
+        <td class="users">
+            <select name="role" id="role">
+                <option value="">--Changer le Role--</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+                <option value="moderateur">Moderateur</option>
+            </select>
+            <button type="button" data-username="${item.username}">Changer</button>
+        </td>
+        <td>
+        <a href="admin.php?username=${item.username}">Delete</a>
+        </td>
+    </tr>
+
+        `
+    });
     html += `
-    
-    <tr>
-    <td>${item.username}</td>
-    <td>${item.register_date}</td>
-    <td>${item.role}</td>
-    <td class="users">
-        <select name="role" id="role">
-            <option value="">--Changer le Role--</option>
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-            <option value="moderateur">Moderateur</option>
-        </select>
-        <button type="button" data-username="${item.username}">Changer</button>
-    </td>
-    <td>
-    <a href="admin.php?username=${item.username}">Delete</a>
-    </td>
-</tr>
-    
-    `
-});
-html += `
 
-        </tr>
-    </tbody>
-</table>
-`;
-// display html.
-adminUsers.insertAdjacentHTML('beforeend', html);
+            </tr>
+        </tbody>
+    </table>
+    `;
+    // display html.
+    adminUsers.insertAdjacentHTML('beforeend', html);
+
 
     //******************** Update Role User *********************/
     // **********************************************************/
@@ -197,6 +202,7 @@ adminUsers.insertAdjacentHTML('beforeend', html);
         let selectEl = usersTD.querySelector('select');
         let button = usersTD.querySelector('button');
         button.addEventListener('click', async ev => {
+
             // recuperated the username and the role.
             let username = ev.target.dataset.username;
             let role = selectEl.value;
@@ -205,6 +211,9 @@ adminUsers.insertAdjacentHTML('beforeend', html);
             // let data = new FormData(ev.target);
             // data.append('username', username);
             // data.append('role', role);
+
+            try{
+
             let res = await fetch(`./../../app/controller/adminRole.php?username=${username}&role=${role}`, {
                 method: 'POST',
                 headers: {
@@ -220,6 +229,10 @@ adminUsers.insertAdjacentHTML('beforeend', html);
             if(response.status === 203){
                 alert(`Le role de ${username} maintenat est : ${role}`);
             }
+        }
+        catch(err) {
+            console.error(err);
+        }
         });
     });
 }
@@ -238,6 +251,9 @@ fetch('./../../app/controller/adminArticle.php', {
     .then(response => response.json())
     .then((data) => {
     
+        // cleared the display
+        adminArticles.innerHTML = '';
+
     // Creation table
         let html = `
             <h2>Géré les articles</h2>
@@ -260,7 +276,7 @@ fetch('./../../app/controller/adminArticle.php', {
                     <td>${item.creation_date}</td>
                     <td>${item.username}</td>
                     <td>
-                        <a href="admin.php?idArticle=${item.id}&title=${item.title}">Delete</a>
+                        <a href="admin.php?idArticle=${item.id}&title=${item.title}" class="deleteUser">Delete</a>
                     </td>
                         
                 </tr>
@@ -272,7 +288,7 @@ fetch('./../../app/controller/adminArticle.php', {
             `
     // display html.
             adminArticles.insertAdjacentHTML('beforeend', html);
-    
+
     })
 }
 
