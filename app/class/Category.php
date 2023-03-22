@@ -17,7 +17,7 @@ class Category
     /**
      * @var string category description
      */
-    private string $_description;
+    private ?string $_description = null;
 
     public function __construct()
     {
@@ -103,7 +103,7 @@ class Category
     /**
      * Get the value of _description
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->_description;
     }
@@ -111,19 +111,10 @@ class Category
     /**
      * Set the value of _description
      */
-    public function setDescription(string $_description): self
+    public function setDescription(?string $_description): self
     {
         $this->_description = $_description;
 
         return $this;
     }
 }
-
-
-// $cat = new Category();
-// $name = 'created 2';
-// $description = 'category 2 created from Category class';
-
-// $cat->setName($name)
-//     ->setDescription($description)
-//     ->create();
