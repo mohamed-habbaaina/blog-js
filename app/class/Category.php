@@ -30,7 +30,7 @@ class Category
      */
     public function __set($name, $value)
     {
-        if ($name[0] != '_') {
+        if ($name[0] !== '_') {
             $this->{'_' . $name} = $value;
         }
     }
@@ -49,6 +49,9 @@ class Category
         return $select->fetchAll(PDO::FETCH_CLASS, 'Category');
     }
 
+    /**
+     * @return bool depending if request is successfull or not
+     */
     public function create(): bool
     {
         $sql = 'INSERT INTO categories (name, description) VALUES (:name, :description)';
@@ -115,3 +118,12 @@ class Category
         return $this;
     }
 }
+
+
+// $cat = new Category();
+// $name = 'created 2';
+// $description = 'category 2 created from Category class';
+
+// $cat->setName($name)
+//     ->setDescription($description)
+//     ->create();
