@@ -65,6 +65,22 @@ class Category
     }
 
     /**
+     * @return bool depending if request is successfull or not
+     */
+    public function update(): bool
+    {
+        $sql = 'UPDATE categories SET name = :name, description = :description WHERE id = :id';
+
+        $update = DbConnection::getDb()->prepare($sql);
+
+        $update->bindParam(':name', $this->_name);
+        $update->bindParam(':description', $this->_description);
+        $update->bindParam(':id', $this->_id, PDO::PARAM_INT);
+
+        return $update->execute();
+    }
+
+    /**
      * Get the value of _id
      */
     public function getId(): int
