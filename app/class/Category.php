@@ -37,9 +37,16 @@ class Category
         }
     }
 
-    public function create()
+    public function create(): bool
     {
+        $sql = 'INSERT INTO categories (name, description) VALUES (:name, :description)';
 
+        $insert = DbConnection::getDb()->prepare($sql);
+
+        $insert->bindParam(':name', $this->_name);
+        $insert->bindParam(':description', $this->_description);
+
+        return $insert->execute();
     }
 
     /**
