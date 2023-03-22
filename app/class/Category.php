@@ -19,6 +19,22 @@ class Category
      */
     private string $_description;
 
+    public function __construct()
+    {
+        
+    }
+
+    /**
+     * format properties names using field names from database
+     * properties names must start by an underscore "_"
+     */
+    public function __set($name, $value)
+    {
+        if ($name[0] != '_') {
+            $this->{'_' . $name} = $value;
+        }
+    }
+
     public static function getAll()
     {
         $sql = 'SELECT * FROM categories';
@@ -28,13 +44,6 @@ class Category
         $select->execute();
 
         return $select->fetchAll(PDO::FETCH_CLASS, 'Category');
-    }
-
-    public function __set($name, $value)
-    {
-        if ($name[0] != '_') {
-            $this->{'_' . $name} = $value;
-        }
     }
 
     public function create(): bool

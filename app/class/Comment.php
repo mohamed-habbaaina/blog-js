@@ -40,7 +40,7 @@ class Comment
 
     /**
      * format properties names using field names from database
-     * properties names must start by an underscord "_"
+     * properties names must start by an underscore "_"
      * if DateTime() values are not null in database, they are parsed with DateTime class before being defined as properties
      */
     public function __set($name, $value): void
