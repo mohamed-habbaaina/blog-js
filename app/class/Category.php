@@ -35,7 +35,10 @@ class Category
         }
     }
 
-    public static function getAll()
+    /**
+     * @return array of Category objects
+     */
+    public static function getAll(): array
     {
         $sql = 'SELECT * FROM categories';
 
