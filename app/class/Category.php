@@ -17,9 +17,28 @@ class Category
     /**
      * @var string category description
      */
-    private string $_description;
+    private ?string $_description = null;
 
-    public static function getAll()
+    public function __construct()
+    {
+        
+    }
+
+    /**
+     * format properties names using field names from database
+     * properties names must start by an underscore "_"
+     */
+    public function __set($name, $value)
+    {
+        if ($name[0] !== '_') {
+            $this->{'_' . $name} = $value;
+        }
+    }
+
+    /**
+     * @return array of Category objects
+     */
+    public static function getAll(): array
     {
         $sql = 'SELECT * FROM categories';
 
@@ -30,16 +49,35 @@ class Category
         return $select->fetchAll(PDO::FETCH_CLASS, 'Category');
     }
 
-    public function __set($name, $value)
+    /**
+     * @return bool depending if request is successfull or not
+     */
+    public function create(): bool
     {
-        if ($name[0] != '_') {
-            $this->{'_' . $name} = $value;
-        }
+        $sql = 'INSERT INTO categories (name, description) VALUES (:name, :description)';
+
+        $insert = DbConnection::getDb()->prepare($sql);
+
+        $insert->bindParam(':name', $this->_name);
+        $insert->bindParam(':description', $this->_description);
+
+        return $insert->execute();
     }
 
-    public function create()
+    /**
+     * @return bool depending if request is successfull or not
+     */
+    public function update(): bool
     {
+        $sql = 'UPDATE categories SET name = :name, description = :description WHERE id = :id';
 
+        $update = DbConnection::getDb()->prepare($sql);
+
+        $update->bindParam(':name', $this->_name);
+        $update->bindParam(':description', $this->_description);
+        $update->bindParam(':id', $this->_id, PDO::PARAM_INT);
+
+        return $update->execute();
     }
 
     /**
@@ -81,7 +119,7 @@ class Category
     /**
      * Get the value of _description
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->_description;
     }
@@ -89,7 +127,7 @@ class Category
     /**
      * Set the value of _description
      */
-    public function setDescription(string $_description): self
+    public function setDescription(?string $_description): self
     {
         $this->_description = $_description;
 
