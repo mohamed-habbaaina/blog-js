@@ -21,16 +21,30 @@ session_start();
 // }
 
 // var_dump($_SESSION);
+// var_dump($_GET);
+// $id = $_GET['id'];
+
+// var_dump($id);
+// var_dump(intval($id));
+// var_dump(is_int($id));
+// var_dump(is_numeric($id));
+// var_dump(preg_match('/^\d+$/', $id));
 
 $article = new Article();
 
-$article->setId($_GET['id']);
+
+if (preg_match('/^\d+$/', $_GET['id'])) {
+    $article->setId($_GET['id']);
+} else {
+    $article->setId(0);
+}
+
 
 try {
     $article->get();
     // var_dump($article);
 } catch (Exception $e) {
-    echo '<h1>' . $e->getMessage() . '</h1>';
+    echo '<h1>' . $e->getMessage() . '</h1><a href="blog.php">retour au blog</a>';
     die();
 }
 
@@ -60,6 +74,14 @@ $comments = $article->getComments();
         <article>
             <h1><?= $article->getTitle() ?></h1>
 
+            <?php
+            if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
+                if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
+                    echo '<button id="edit">edit</button>';
+                }
+            }
+            ?>
+    
             <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
 
             <p>Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
@@ -67,7 +89,7 @@ $comments = $article->getComments();
             <p><?= $article->getContent() ?></p>
 
             <?php if ($article->getImage() !== null) : ?>
-                <img src="data:image/jpeg;base64, <?= base64_encode($article->getImage()) ?>" alt="article image">
+                <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article image">
             <?php endif ?>
         </article>
 
