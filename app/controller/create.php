@@ -1,8 +1,8 @@
 <?php
-require_once dirname(__DIR__) . '/class/Article.php';
-require_once dirname(__DIR__) . '/class/Category.php';
-require_once dirname(__DIR__) . '/class/User.php';
-require_once dirname(dirname(__DIR__)) . '/vue/includes/functions.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Category.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'User.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR .'vue'. DIRECTORY_SEPARATOR .'includes'. DIRECTORY_SEPARATOR .'functions.php';
 
 session_start();
 
