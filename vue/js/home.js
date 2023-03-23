@@ -1,3 +1,46 @@
+//********************* Search bar **********************/
+//***************************************************** */
+
+const formSearch = document.forms['formSearch'];
+let search = document.forms['formSearch']['search'];
+
+let resultDisplay = document.querySelector('#result');
+
+formSearch.addEventListener('input', async function(e) {
+
+    // Remove display
+    resultDisplay.innerHTML = '';
+
+
+    let articleSearch = search.value;
+
+    // if minimum 3 character
+    if(articleSearch.length > 2){
+
+        let search = await fetch('./../app/controller/homeSearch.php?search=' + articleSearch);
+
+        let data = await search.json();
+        let html = '';
+
+        resultDisplay.innerHTML = '';
+
+        // Display link Db
+        data.forEach(item => {
+            html += `
+                <li class=""><a href="./../vue/src/article.php?id=${item.id}">${item.title}</a></li>
+            `
+        });
+        
+        resultDisplay.insertAdjacentHTML('beforeend', html);
+
+
+    }
+
+})
+
+
+//****************** Display last 3 Aerticles ***********/
+//***************************************************** */
 
 const articlHome = document.querySelector('.articlHome');
 let html;
@@ -12,8 +55,10 @@ const headeArticle = {
 fetch("./../app/controller/home.php", headeArticle)
 .then(response => response.json())
 .then((data) => {
-    console.log(data);
 
+    // console.log(data);
+
+    // create a date object to format it.
     let date1 = new Date(data[0].creation_date);
     let date2 = new Date(data[1].creation_date);
     let date3 = new Date(data[2].creation_date);
