@@ -137,10 +137,9 @@ if(isset($_SESSION['role'])):
         <div>
 
             <!-- Le formulaire de recherche -->
-            <form action="#?id=" id="formSearch">
+            <form action="../vue/src/article.php?id=" id="formSearch">
                 <label for="search">Article: </label>
                 <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
-                <button id="btn" disabled>Recherche</button>
             </form>
             <!-- L'affichage des resultats -->
             <ul id="result"></ul>
