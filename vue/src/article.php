@@ -83,7 +83,7 @@ $comments = $article->getComments();
             <?php
             if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                 if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
-                    echo '<button id="edit">edit</button>';
+                    echo '<a href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
                 }
             }
             ?>
