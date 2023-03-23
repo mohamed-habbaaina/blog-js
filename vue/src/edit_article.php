@@ -67,7 +67,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
             <h1>Modifier Article</h1>
 
             <label for="title">Titre</label>
-            <input type="text" name="title" id="title" placeholder="Titre de votre article">
+            <input type="text" name="title" id="title" placeholder="Titre de votre article" value="<?= $article->getTitle() ?>">
             <small></small>
 
             <label for="category">Catégorie</label>
@@ -79,10 +79,13 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
             <small></small>
 
             <label for="content">Contenu</label>
-            <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"></textarea>
+            <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"><?= $article->getContent() ?></textarea>
             <small></small>
 
-            <label for="image">Image</label>
+            <?php if ($article->getImage() != null): ?>
+                <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article current image">
+            <?php endif ?>
+            <label for="image">Modifier l'image</label>
             <input type="file" name="image" id="image">
             <small></small>
 
