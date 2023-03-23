@@ -339,7 +339,7 @@ class Article
     }
 
     /**
-     * Get the value of user_id //! récupération de la base de donné, probléme géré avec les $_SESSION, 
+     * Get the value of user_id
      */
     public function getUserId(): int
     {
@@ -347,7 +347,7 @@ class Article
     }
 
     /**
-     * Set the value of user_id //! setIdUser !
+     * Set the value of user_id
      */
     public function setUserId(int $user_id): self
     {

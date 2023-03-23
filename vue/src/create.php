@@ -53,7 +53,7 @@ $categories = Category::getAll();
                 <?php endforeach ?>
             </select>
             <small></small>
-            
+
             <label for="content">Contenu</label>
             <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"></textarea>
             <small></small>
