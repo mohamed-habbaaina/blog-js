@@ -17,30 +17,40 @@ $title = htmlspecialchars(trim($_POST['title']), ENT_QUOTES);
 $content = htmlspecialchars(trim($_POST['content']), ENT_QUOTES);
 $category = htmlspecialchars(trim($_POST['category']), ENT_QUOTES);
 
-function get_image_file($image_file)
+function get_article_image_file($image_file)
 {
-    // var_dump($image_file);
+    // test if file exists and has no error
     if (isset($image_file) && $image_file['error'] === 0) {
 
+        // limit image size
         if ($image_file['size'] > 2000000) {
             throw new Exception('Taille de l\'image maximum : 2mo');
         } else {
-            $image_file = $_FILES['image'];
-
+            // get image infos
             $image_infos = pathinfo($image_file['name']);
 
+            // get image extensions
             $image_extension = $image_infos['extension'];
 
+            // accepted extensions array
             $extensions_array = ['png', 'gif', 'jpg', 'jpeg', 'webp'];
 
             if (in_array($image_extension, $extensions_array)) {
+                // name image after last article created using user id
                 $image_name = 'article_thumbnail_' . Article::getLastIdByUserId($_SESSION['id']) . '.' . $image_infos['extension'];
+
+                // set path to article thumbnail folder
                 $image_path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'article_thumbnail' . DIRECTORY_SEPARATOR . $image_name;
 
+                // attempt to move image file to image folder
                 if(move_uploaded_file($image_file['tmp_name'], $image_path)) {
+
+                    // if successful, return image name to set it in Article instance, then at image column in articles table
                     return $image_name;
                 }
             } else {
+
+                // if the format is not accepted
                 $extensions_string = '';
 
                 foreach ($extensions_array as $key => $extension) {
@@ -59,8 +69,8 @@ function get_image_file($image_file)
 if (!empty($title) && !empty($content) && !empty($category)) {
     try {
         $article = new Article();
-    
-        $image = get_image_file($_FILES['image']);
+
+        $image = get_article_image_file($_FILES['image']);
 
         $article->setTitle($title)
             ->setContent($content)
