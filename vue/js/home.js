@@ -25,8 +25,10 @@ fetch("./../app/controller/home.php", headeArticle)
             <img src="../uploads/article_thumbnail/${data[0].image}" alt="${data[0].title}">
             <h3>${data[0].title}</h3>
             <div class="author">
-            <div>Publier le : ${date1.toLocaleString()}</div>
-            <div><span>${data[0].username}</span></div>
+                <div>Publier le : ${date1.toLocaleString()}</div>
+                <div><span>${data[0].username}</span></div>
+            </div>
+            <button><a href="../vue/src/article.php?id=${data[0].id}">Voir l'article</a></button>
 
         </div>
         <div class="cardRight">
@@ -34,15 +36,21 @@ fetch("./../app/controller/home.php", headeArticle)
                 <img src="../uploads/article_thumbnail/${data[1].image}" alt="${data[0].title}">
                 <h3>${data[1].title}</h3>
                 <div class="author">
-                <div>Publier le : ${date2.toLocaleString()}</div>
-                <div><span>${data[1].username}</span></div>
+                    <div>Publier le : ${date2.toLocaleString()}</div>
+                    <div><span>${data[1].username}</span></div>
+                </div>
+                <button><a href="../vue/src/article.php?id=${data[1].id}">Voir l'article</a></button>
+
             </div>
             <div class="card">
                 <img src="../uploads/article_thumbnail/${data[2].image}" alt="${data[0].title}">
                 <h3>${data[2].title}</h3>
                 <div class="author">
-                <div>Publier le : ${date3.toLocaleString()}</div>
-                <div><span>${data[2].username}</span></div>
+                    <div>Publier le : ${date3.toLocaleString()}</div>
+                    <div><span>${data[2].username}</span></div>
+                </div>
+                <button><a href="../vue/src/article.php?id=${data[2].id}">Voir l'article</a></button>
+
             </div>
         </div>
 
