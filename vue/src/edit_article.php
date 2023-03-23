@@ -1,6 +1,7 @@
 <?php
 
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Category.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
 
 session_start();
 
@@ -16,22 +17,46 @@ if (!isset($_SESSION['id'])) {
     die();
 }
 
-// categories from database used for select article category with select & option html elements
-$categories = Category::getAll();
+$article = new Article();
 
+if (preg_match('/^\d+$/', $_GET['id'])) {
+    $article->setId($_GET['id']);
+} else {
+    $article->setId(0);
+}
+
+if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
+    http_response_code(403);
+    header('Location: article.php?id=' . $article->getId());
+    die();
+} else {
+    try {
+        $article->get();
+        // var_dump($article);
+    } catch (Exception $e) {
+        echo '<h1>' . $e->getMessage() . '</h1><a href="blog.php">retour au blog</a>';
+        die();
+    }
+
+    if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
+
+        // categories from database used for select article category with select & option html elements
+        $categories = Category::getAll();
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./../../public/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./../../public/style/create.css">
-    <script defer src="./../js/create.js"></script>
+    <link rel="stylesheet" href="./../../public/style/edit.css">
+    <script defer src="./../js/edit.js"></script>
     <title>Nouvel Article | Blog Cuisine</title>
 </head>
+
 <body>
     <?php require_once("./../includes/header.php") ?>
 
@@ -48,7 +73,7 @@ $categories = Category::getAll();
             <label for="category">Catégorie</label>
             <select name="category" id="category">
                 <option value="">-- Sélectionnez la Catégorie --</option>
-                <?php foreach ($categories as $category): ?>
+                <?php foreach ($categories as $category) : ?>
                     <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
                 <?php endforeach ?>
             </select>
@@ -69,4 +94,11 @@ $categories = Category::getAll();
 
     <?php require_once("./../includes/footer.php") ?>
 </body>
+
 </html>
+<?php
+    } else {
+        http_response_code(403);
+        header('Location: blog.php');
+    }
+}
