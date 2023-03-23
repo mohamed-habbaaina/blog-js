@@ -1,7 +1,13 @@
 <?php
 
-// send image $file to $path and return its $name concatenated with its extension
-function get_image_file($image_file, $name, $destination_path) {
+/**
+ * send image $file to $path and return its $name concatenated with its extension
+ * @param array $image_file image from $_FILES
+ * @param string $name to rename the file
+ * @param string $destination_path to define
+ * @return string $image_name $name + image extension
+ */
+function get_image_file(array $image_file, string $name, string $destination_path):string {
     // test if file exists and has no error
     if (isset($image_file) && $image_file['error'] === 0) {
 
