@@ -72,9 +72,8 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
 
             <label for="category">Catégorie</label>
             <select name="category" id="category">
-                <option value="">-- Sélectionnez la Catégorie --</option>
                 <?php foreach ($categories as $category) : ?>
-                    <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
+                    <option value="<?= $category->getId() ?>" <?= $article->getCategoryId() === $category->getId() ? 'selected' : '' ?>><?= $category->getName() ?></option>
                 <?php endforeach ?>
             </select>
             <small></small>
