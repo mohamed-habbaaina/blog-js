@@ -5,35 +5,37 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'User.php';
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'includes'. DIRECTORY_SEPARATOR .'functions.php';
 
-
 session_start();
 
 // var_dump($_POST, $_SESSION);
 
 // is user logged
 
-$logged_user = new \User\User();
-
-if (!$logged_user->isInDb($_SESSION['id'])) {
-    $logged_user->deconnect();
-    header('Location: ../../public/index.php');
-    die();
-}
-
-
-$article = new Article();
-
-if (preg_match('/^\d+$/', $_GET['id'])) {
-    $article->setId($_GET['id']);
-} else {
-    $article->setId(0);
-}
-
+// test 
 if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
     http_response_code(403);
     header('Location: article.php?id=' . $article->getId());
     die();
 } else {
+    $logged_user = new \User\User();
+
+    // test if logged user still exists in database
+    if (!$logged_user->isInDb($_SESSION['id'])) {
+        $logged_user->deconnect();
+        header('Location: ../../public/index.php');
+        die();
+    }
+
+    $article = new Article();
+
+    // check if id in $_GET is an integer
+    if (preg_match('/^\d+$/', $_GET['id'])) {
+        $article->setId($_GET['id']);
+    } else {
+        $article->setId(0);
+    }
+
+    // get article informations from database using id
     try {
         $article->get();
     } catch (Exception $e) {
@@ -80,7 +82,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
                         header("HTTP/1.1 200 Updated");
 
                         header('Location: blog.php');
-                        // die();
+                        die(); //? useless die()?
                     }
                 } catch (Exception $e) {
                     echo $e->getMessage();
