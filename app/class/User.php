@@ -17,21 +17,8 @@ class User
     private ?int $id;
     private ?array $data;
 
-    // La DB.
-    private $servername = 'localhost';
-    private $username_b = 'root';
-    private $password_b = '';
-    private $database = 'blog_js';
-    private $db;
-
     public function __construct()
     {
-    //     try {
-    //         $this->db = new \PDO("mysql:host=$this->servername;dbname=$this->database;charset=utf8", "$this->username_b", "$this->password_b");
-    //     }
-    //    catch(\PDOException $e){
-    //         echo 'ERROR: ' . $e->getMessage();
-    //    }
     }
 
     /**
