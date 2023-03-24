@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./../public/style/style.css">
     <link rel="stylesheet" href="./../public/style/home.css">
     <script defer src="./../vue/js/home.js"></script>
-    <title>Home</title>
+    <title>Accueil | Blog Cuisine</title>
 </head>
 <body>
 

@@ -20,7 +20,7 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" href="./../../public/style/style.css">
     <link rel="stylesheet" href="./../../public/style/connect.css">
     <script defer src="./../js/profil.js"></script>
-    <title>Profil</title>
+    <title>Profil | Blog Cuisine</title>
 </head>
 <body>
     <?php require_once("./../includes/header.php") ?>

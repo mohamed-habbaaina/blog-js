@@ -53,7 +53,7 @@ endif;
     <link rel="stylesheet" href="./../../public/style/style.css">
     <link rel="stylesheet" href="./../../public/style/admin.css">
     <script defer src="./../js/admin.js"></script>
-    <title>Admin</title>
+    <title>Admin | Blog Cuisine</title>
 </head>
 <body>
 

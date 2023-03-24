@@ -17,7 +17,7 @@ $_SESSION['page'] = $page;
     <link rel="stylesheet" href="../../public/style/style.css">
     <link rel="stylesheet" href="../../public/style/blog.css">
     <script defer src="../js/blog.js"></script>
-    <title>Blog</title>
+    <title>Le Blog | Blog Cuisine</title>
 </head>
 <body>
 

@@ -11,7 +11,7 @@ session_start();
     <link rel="stylesheet" href="./../../public/style/style.css">
     <link rel="stylesheet" href="./../../public/style/connect.css">
     <script defer src="./../js/connect.js"></script>
-    <title>Connection</title>
+    <title>Connexion | Blog Cuisine</title>
 </head>
 <body>
     <?php require_once("./../includes/header.php") ?>
