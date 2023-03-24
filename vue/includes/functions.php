@@ -2,18 +2,18 @@
 
 /**
  * send image $file to $path and return its $name concatenated with its extension
- * @param array $image_file image from $_FILES
+ * @param array $image_file image file from $_FILES
  * @param string $name to rename the file
  * @param string $destination_path to define
  * @return string $image_name $name + image extension
  */
-function get_image_file(array $image_file, string $name, string $destination_path):string {
+function get_image_file(array $image_file, string $name, string $destination_path) {
     // test if file exists and has no error
     if (isset($image_file) && $image_file['error'] === 0) {
 
         // limit image size
         if ($image_file['size'] > 2000000) {
-            throw new Exception('Taille de l\'image maximum : 2mo');
+            throw new Exception('Taille maximum de l\'image : 2mo');
         } else {
             // get image infos
             $image_infos = pathinfo($image_file['name']);
