@@ -2,10 +2,13 @@
 
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Category.php';
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
+require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'includes'. DIRECTORY_SEPARATOR .'functions.php';
+
 
 session_start();
 
-// var_dump($_POST, $_SESSION);
+var_dump($_POST, $_SESSION);
+// unset($_SESSION['last-seen-article']);
 
 if (!isset($_SESSION['id'])) {
     http_response_code(403);
@@ -42,6 +45,54 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
 
         // categories from database used for select article category with select & option html elements
         $categories = Category::getAll();
+
+        if (isset($_POST['submit'])) {
+            $title = htmlspecialchars(trim($_POST['title']), ENT_QUOTES);
+            $content = htmlspecialchars(trim($_POST['content']), ENT_QUOTES);
+            $category = htmlspecialchars(trim($_POST['category']), ENT_QUOTES);
+
+            if (!empty($title) && !empty($content) && !empty($category)) {
+                try {
+                    // $article = new Article();
+
+                    $file = $_FILES['image'];
+
+                    // name image after last article created using user id
+                    $name = 'article_thumbnail_' . $article->getId();
+
+                    var_dump($name);
+
+                    // set destination path to article thumbnail folder
+                    $path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'article_thumbnail' . DIRECTORY_SEPARATOR;
+
+                    // required function get_image_file() to send image $file to $path and return its $name concatenated with its extension
+                    $image = get_image_file($file, $name, $path);
+
+                    if ($image !== null) {
+                        $article->setImage($image);
+                    } else {
+                        $article->setImage($article->getImage());
+                    }
+
+                    $article->setTitle($title)
+                        ->setContent($content)
+                        ->setCategoryId($category);
+
+                    if ($article->update()) {
+                        header("HTTP/1.1 200 Updated");
+
+                        // header('Refresh: 0; url=../../vue/src/blog.php');
+                        header('Location: blog.php');
+                        // die();
+                    }
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            } else {
+                echo 'erreur : veuillez remplir tous les champs';
+            }
+        }
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +113,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
 
     <main>
 
-        <form enctype="multipart/form-data" action="./../../app/controller/edit_article.php" method="post" id="formEditArticle">
+        <form enctype="multipart/form-data" action="" method="post" id="formEditArticle">
 
             <h1>Modifier Article</h1>
 
