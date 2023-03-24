@@ -31,19 +31,19 @@
 
                     <?php if($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'moderator'): // for admins & moderators ?>
 
-                        <li><a href="../vue/src/create.php">Create</a></li> 
+                        <li><a href="../vue/src/create.php">Écrire un article</a></li> 
 
-                    <?php endif ?>
+                    <?php endif // for other logged users ?>
 
                     <li><a href="../vue/src/profil.php">Profil</a></li>
 
-                    <li><a href="../app/controller/deconnect.php">Deconected</a></li>
+                    <li><a href="../app/controller/deconnect.php">Déconnexion</a></li>
 
                 <?php else: // for guests ?>
 
-                    <li><a href="../vue/src/connect.php">Connected</a></li>
+                    <li><a href="../vue/src/connect.php">Connexion</a></li>
                     
-                    <li><a href="../vue/src/register.php">Register</a></li>
+                    <li><a href="../vue/src/register.php">Inscription</a></li>
 
                 <?php endif ?>
 

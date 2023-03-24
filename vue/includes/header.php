@@ -15,19 +15,19 @@
 
                 <?php if($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'moderator'): // for admins & moderators ?>
 
-                    <li><a href="./create.php">Create</a></li> 
+                    <li><a href="./create.php">>Écrire un article</a></li> 
 
-                <?php endif // for guests ?>
+                <?php endif // for other logged users ?>
 
                 <li><a href="./profil.php">Profil</a></li>
 
-                <li><a href="./../../app/controller/deconnect.php">Deconected</a></li>
+                <li><a href="./../../app/controller/deconnect.php">Déconnexion</a></li>
 
             <?php else: ?>
 
-                <li><a href="connect.php">Connected</a></li>
+                <li><a href="connect.php">Connexion</a></li>
                 
-                <li><a href="register.php">Register</a></li>
+                <li><a href="register.php">Inscription</a></li>
 
             <?php endif ?>
 
