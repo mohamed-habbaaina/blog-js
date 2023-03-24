@@ -1,12 +1,5 @@
-<?php
-session_start();
-if(isset($_SESSION['role'])):
-    
-    $role = $_SESSION['role'];
+<?php session_start(); ?>
 
-    if($role === 'admin'):
-
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,143 +14,67 @@ if(isset($_SESSION['role'])):
 </head>
 <body>
 
-        <!-- Header Admin -->
     <header>
-        <a href="">LOGO</a>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./../vue/src/blog.php">Blog</a></li>
-            <li><a href="./../vue/src/profil.php">Profil</a></li>
-            <li><a href="./../vue/src/create.php">Create</a></li>
-            <li><a href="./../vue/src/admin.php">Admin</a></li>
-            <li><a href="./../app/controller/deconnect.php">Deconected</a></li>
+        <a href="#">LOGO</a>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="../vue/src/blog.php">Blog</a></li>
 
-        </ul>
+                <?php if(isset($_SESSION['role'])): // for logged users ?>
+
+                    <?php if($_SESSION['role'] === 'admin'): // for admins ?>
+
+                        <li><a href="../vue/src/admin.php">Admin</a></li>
+
+                    <?php endif ?>
+
+                    <?php if($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'moderator'): // for admins & moderators ?>
+
+                        <li><a href="../vue/src/create.php">Create</a></li> 
+
+                    <?php endif ?>
+
+                    <li><a href="../vue/src/profil.php">Profil</a></li>
+
+                    <li><a href="../app/controller/deconnect.php">Deconected</a></li>
+
+                <?php else: // for guests ?>
+
+                    <li><a href="../vue/src/connect.php">Connected</a></li>
+                    
+                    <li><a href="../vue/src/register.php">Register</a></li>
+
+                <?php endif ?>
+
+            </ul>
+        </nav>
     </header>
 
-    <?php
-    elseif($role === 'moderator'):
-    ?>
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./../public/style/style.css">
-    <link rel="stylesheet" href="./../public/style/home.css">
-    <script defer src="./../vue/js/home.js"></script>
 
-    <title>Home</title>
-</head>
-<body>
+    <main>
 
-        <!-- Header Moderator -->
+        <section class="headerSearch">
+            <div>
+                <h1>Blog Cuisine Méditerranéenne</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
+            </div>
+            <div>
 
-    <header>
-        <a href="">LOGO</a>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./../vue/src/blog.php">Blog</a></li>
-            <li><a href="./../vue/src/create.php">Create</a></li>
-            <li><a href="./../vue/src/profil.php">Profil</a></li>
-            <li><a href="./../app/controller/deconnect.php">Deconected</a></li>
+                <!-- Le formulaire de recherche -->
+                <form action="../vue/src/article.php?id=" id="formSearch">
+                    <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
+                </form>
+                <!-- L'affichage des resultats -->
+                <ul id="result"></ul>
+            </div>
+        </section>
 
-        </ul>
-    </header>
+        <section class="articlHome">
+        </section>
 
-    <?php
-    else:
-    ?>
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./../public/style/style.css">
-    <link rel="stylesheet" href="./../public/style/home.css">
-    <script defer src="./../vue/js/home.js"></script>
+    </main>
 
-    <title>Home</title>
-</head>
-<body>
-
-
-        <!-- Header User -->
-
-    <header>
-        <a href="">LOGO</a>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./../vue/src/blog.php">Blog</a></li>
-            <li><a href="./../vue/src/profil.php">Profil</a></li>
-            <li><a href="./../app/controller/deconnect.php">Deconected</a></li>
-
-        </ul>
-    </header>
-    <?php
-    endif;
-    ?>
-
-    <?php
-    else:
-    ?>
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./../public/style/style.css">
-    <link rel="stylesheet" href="./../public/style/home.css">
-    <script defer src="./../vue/js/home.js"></script>
-    <title>Home</title>
-</head>
-<body>
-
-        <!-- Header invited -->
-
-    <header>
-        <a href="">LOGO</a>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./../vue/src/blog.php">Blog</a></li>
-            <li><a href="./../vue/src/connect.php">Connected</a></li>
-            <li><a href="./../vue/src/register.php">Register</a></li>
-
-        </ul>
-    </header>
-
-    <?php
-    endif;
-    ?>
-<main>
-
-    <section class="headerSearch">
-        <div>
-            <h1>Blog Cuisine Méditerranéenne</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
-        </div>
-        <div>
-
-            <!-- Le formulaire de recherche -->
-            <form action="../vue/src/article.php?id=" id="formSearch">
-                <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
-            </form>
-            <!-- L'affichage des resultats -->
-            <ul id="result"></ul>
-        </div>
-    </section>
-
-    <section class="articlHome">
-    </section>
-
-</main>
-
-<?php require_once('./../vue/includes/footer.php'); ?>
+    <?php require_once('./../vue/includes/footer.php'); ?>
 </body>
 </html>
