@@ -101,6 +101,21 @@ class Article
         return $insert->execute();
     }
 
+    public function update(): bool
+    {
+        $sql = 'UPDATE articles SET title = :title, content = :content, image = :image, edit_date = NOW(), category_id = :category_id WHERE id = :id';
+
+        $update = DbConnection::getDb()->prepare($sql);
+
+        $update->bindParam(':id', $this->_id, PDO::PARAM_INT);
+        $update->bindParam(':title', $this->_title);
+        $update->bindParam(':content', $this->_content);
+        $update->bindParam(':image', $this->_image);
+        $update->bindParam(':category_id', $this->_category_id, PDO::PARAM_INT);
+
+        return $update->execute();
+    }
+
     /**
      * delete article from database
      */
