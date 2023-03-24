@@ -9,9 +9,8 @@ session_start();
 
 // var_dump($_POST, $_SESSION);
 
-// is user logged
 
-// test 
+// test if user is logged
 if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
     http_response_code(403);
     header('Location: article.php?id=' . $article->getId());
