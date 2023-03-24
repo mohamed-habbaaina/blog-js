@@ -8,7 +8,8 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./../../public/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./../../public/style/register.css">
+    <link rel="stylesheet" href="./../../public/style/style.css">
+    <link rel="stylesheet" href="./../../public/style/connect.css">
     <script defer src="./../js/register.js"></script>
     <title>Register</title>
 </head>
@@ -37,7 +38,7 @@ session_start();
             <input type="password" name="repass" placeholder="Confirmer Votre Password">
             <small></small>
             
-            <button>S'inscrire</button>
+            <button class="btn">S'inscrire</button>
         </form>
         
     </main>
