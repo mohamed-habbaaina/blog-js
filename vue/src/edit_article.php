@@ -8,26 +8,18 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'includes'. DIRECTORY_SEPAR
 
 session_start();
 
-var_dump($_POST, $_SESSION);
-// unset($_SESSION['last-seen-article']);
+// var_dump($_POST, $_SESSION);
 
-if (!isset($_SESSION['id'])) {
-    http_response_code(403);
-    header('Location: connect.php');
-    die();
-} elseif ($_SESSION['role'] !== 'admin' && $_SESSION['role'] !== 'moderator') {
-    http_response_code(403);
-    header('Location: blog.php');
-    die();
-} else {
-    $logged_user = new \User\User();
+// is user logged
 
-    if (!$logged_user->isInDb($_SESSION['id'])) {
-        $logged_user->deconnect();
-        header('Location: ../../public/index.php');
-        die();
-    }
+$logged_user = new \User\User();
+
+if (!$logged_user->isInDb($_SESSION['id'])) {
+    $logged_user->deconnect();
+    header('Location: ../../public/index.php');
+    die();
 }
+
 
 $article = new Article();
 
@@ -44,7 +36,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
 } else {
     try {
         $article->get();
-        // var_dump($article);
     } catch (Exception $e) {
         echo '<h1>' . $e->getMessage() . '</h1><a href="blog.php">retour au blog</a>';
         die();
@@ -69,8 +60,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
                     // name image after last article created using user id
                     $name = 'article_thumbnail_' . $article->getId();
 
-                    var_dump($name);
-
                     // set destination path to article thumbnail folder
                     $path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'article_thumbnail' . DIRECTORY_SEPARATOR;
 
@@ -90,7 +79,6 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
                     if ($article->update()) {
                         header("HTTP/1.1 200 Updated");
 
-                        // header('Refresh: 0; url=../../vue/src/blog.php');
                         header('Location: blog.php');
                         // die();
                     }
