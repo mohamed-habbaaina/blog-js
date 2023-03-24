@@ -39,7 +39,7 @@ fetch("./../../app/controller/blog.php",{
               <div><span>${item.username}</span></div>
           </div>
               <div>
-                  <p>${item.content}<a href="article.php?id=${item.id}">...plus</a></p>
+                  <button><a href="article.php?id=${item.id}">...Voir</a></button>
               </div>
           </div>
         `;

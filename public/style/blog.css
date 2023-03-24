@@ -1,28 +1,8 @@
-*, ::before, ::after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-}
-/* ! provisoire */
-header{
-    display: flex;
-    height: 7vh;
-}
-header ul{
-    display: flex;
-}
-header li{
-    margin: 0 40px;
-}
-html, body{
-    width: 100%;
-    height: 100vh;
-}
 main{
-    max-height: 86vh;
+    height: 86vh;
     width: 70%;
-    margin: 20px auto;
+    margin: auto;
+    overflow: auto;
 }
 .pages{
     display: flex;
@@ -31,7 +11,11 @@ main{
 }
 .pages button{
     margin-inline: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    background-color: rgb(225, 19, 19);
+    color: white;
+    /* padding: 4px 8px; */
+    border-radius: 5px;
 }
 .blog{
     display: grid;
@@ -41,16 +25,13 @@ main{
     width: 100%;
     overflow-y: auto;
 }
-/* .card{ */
-    /* position: relative; */
-/* } */
 .card{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 350px;
-    height: 350px;
+    width: 280px;
+    height: 250px;
     overflow-y: auto;
     padding: 5px;
     margin: auto;
@@ -62,18 +43,26 @@ main{
 }
 .card img{
     width: 100%;
-    height: 180px;
+    height: 130px;
     object-fit: cover;
 }
 .card p{
     padding: 10px 5px;
     text-align: justify;
 }
-/* .card a{
-    display: flex;
-    flex-direction: row-reverse;
-    margin-right: 3%;
-} */
+.card button{
+    background-color: rgb(225, 19, 19);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all .3s;
+}
+.card button:hover{
+    background-color: rgb(252, 145, 52);
+    letter-spacing: 1.5px;
+    color: black;
+}
 
 /************** @media screen **************/
 /* *************************************** */
