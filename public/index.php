@@ -14,6 +14,8 @@ if(isset($_SESSION['role'])):
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../public/style/style.css">
+    <link rel="stylesheet" href="./../public/style/home.css">
     <script defer src="./../vue/js/home.js"></script>
     <title>Home</title>
 </head>
@@ -43,6 +45,8 @@ if(isset($_SESSION['role'])):
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../public/style/style.css">
+    <link rel="stylesheet" href="./../public/style/home.css">
     <script defer src="./../vue/js/home.js"></script>
 
     <title>Home</title>
@@ -73,6 +77,8 @@ if(isset($_SESSION['role'])):
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../public/style/style.css">
+    <link rel="stylesheet" href="./../public/style/home.css">
     <script defer src="./../vue/js/home.js"></script>
 
     <title>Home</title>
@@ -106,6 +112,8 @@ if(isset($_SESSION['role'])):
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./../public/style/style.css">
+    <link rel="stylesheet" href="./../public/style/home.css">
     <script defer src="./../vue/js/home.js"></script>
     <title>Home</title>
 </head>
@@ -131,14 +139,13 @@ if(isset($_SESSION['role'])):
 
     <section class="headerSearch">
         <div>
-            <h1>Blog Cuisine</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eius corrupti quasi ex corporis ducimus dignissimos. Eveniet reprehenderit harum deleniti, nulla unde totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
+            <h1>Blog Cuisine Méditerranéenne</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
         </div>
         <div>
 
             <!-- Le formulaire de recherche -->
             <form action="../vue/src/article.php?id=" id="formSearch">
-                <label for="search">Article: </label>
                 <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
             </form>
             <!-- L'affichage des resultats -->
