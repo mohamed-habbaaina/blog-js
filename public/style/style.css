@@ -1,0 +1,52 @@
+*, ::before, ::after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+	height: 100vh;
+    font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: inherit;
+}
+li{
+	list-style: none;
+
+}
+header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 7vh;
+}
+header ul{
+	display: flex;
+}
+header ul li{
+	margin: 0 20px;
+}
+footer{
+	width: 100%;
+	height: 7vh;
+}
+.btn{
+    background-color: rgb(225, 19, 19);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .3s;
+}
+.btn:hover{
+    background-color: rgb(252, 145, 52);
+    letter-spacing: 1.5px;
+    color: black;
+}
