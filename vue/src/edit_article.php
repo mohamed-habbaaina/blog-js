@@ -2,6 +2,7 @@
 
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Category.php';
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
+require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'User.php';
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'includes'. DIRECTORY_SEPARATOR .'functions.php';
 
 
@@ -18,6 +19,14 @@ if (!isset($_SESSION['id'])) {
     http_response_code(403);
     header('Location: blog.php');
     die();
+} else {
+    $logged_user = new \User\User();
+
+    if (!$logged_user->isInDb($_SESSION['id'])) {
+        $logged_user->deconnect();
+        header('Location: ../../public/index.php');
+        die();
+    }
 }
 
 $article = new Article();
