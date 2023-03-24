@@ -4,10 +4,7 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARA
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'User.php';
 
 session_start();
-// if (!isset($_GET['id'])) {
-    // header('Location: blog.html');
-    // die();
-// }
+
 $logged_user = new \User\User();
 
 if (!$logged_user->isInDb($_SESSION['id'])) {

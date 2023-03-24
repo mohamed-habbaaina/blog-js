@@ -101,6 +101,21 @@ class Article
         return $insert->execute();
     }
 
+    public function update(): bool
+    {
+        $sql = 'UPDATE articles SET title = :title, content = :content, image = :image, edit_date = NOW(), category_id = :category_id WHERE id = :id';
+
+        $update = DbConnection::getDb()->prepare($sql);
+
+        $update->bindParam(':id', $this->_id, PDO::PARAM_INT);
+        $update->bindParam(':title', $this->_title);
+        $update->bindParam(':content', $this->_content);
+        $update->bindParam(':image', $this->_image);
+        $update->bindParam(':category_id', $this->_category_id, PDO::PARAM_INT);
+
+        return $update->execute();
+    }
+
     /**
      * delete article from database
      */
@@ -339,7 +354,7 @@ class Article
     }
 
     /**
-     * Get the value of user_id //! récupération de la base de donné, probléme géré avec les $_SESSION, 
+     * Get the value of user_id
      */
     public function getUserId(): int
     {
@@ -347,7 +362,7 @@ class Article
     }
 
     /**
-     * Set the value of user_id //! setIdUser !
+     * Set the value of user_id
      */
     public function setUserId(int $user_id): self
     {

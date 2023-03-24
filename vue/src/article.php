@@ -1,5 +1,10 @@
 <?php
-// require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'article.php';
+
+if (!isset($_GET['id'])) {
+    header('Location: blog.php');
+    die();
+}
+
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Article.php';
 require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'class' . DIRECTORY_SEPARATOR . 'Comment.php';
 
@@ -20,16 +25,6 @@ session_start();
 
 // }
 
-// var_dump($_SESSION);
-// var_dump($_GET);
-// $id = $_GET['id'];
-
-// var_dump($id);
-// var_dump(intval($id));
-// var_dump(is_int($id));
-// var_dump(is_numeric($id));
-// var_dump(preg_match('/^\d+$/', $id));
-
 $article = new Article();
 
 
@@ -39,10 +34,8 @@ if (preg_match('/^\d+$/', $_GET['id'])) {
     $article->setId(0);
 }
 
-
 try {
     $article->get();
-    // var_dump($article);
 } catch (Exception $e) {
     echo '<h1>' . $e->getMessage() . '</h1><a href="blog.php">retour au blog</a>';
     die();
@@ -50,7 +43,6 @@ try {
 
 $comments = $article->getComments();
 
-// var_dump($comments);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -77,7 +69,7 @@ $comments = $article->getComments();
             <?php
             if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                 if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
-                    echo '<button id="edit">edit</button>';
+                    echo '<a href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
                 }
             }
             ?>
