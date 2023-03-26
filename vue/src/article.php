@@ -111,7 +111,7 @@ $comments = $article->getComments();
                                 <?php
                                 // for logged users only
                                 if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
-                                    $delete_button = '<form action="./../../app/controller/article.php" method="post"><button class="btn small" type="submit" name="delete-comment" value="' . $comment->getId() . '">Delete Comment</button></form>';
+                                    $delete_button = '<form class="delete-com" action="./../../app/controller/article.php" method="post"><button class="btn small" type="submit" name="delete-comment" value="' . $comment->getId() . '">Delete Comment</button></form>';
                                     // authors can delete theirs comments
                                     if ($author['id'] === $_SESSION['id']) {
                                         echo $delete_button;
