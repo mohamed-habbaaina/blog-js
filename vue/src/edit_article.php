@@ -42,6 +42,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
         die();
     }
 
+    // only admin & moderator who is also author of the article can edit it
     if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
 
         // categories from database used for select article category with select & option html elements

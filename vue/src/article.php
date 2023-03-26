@@ -64,29 +64,30 @@ $comments = $article->getComments();
     <main>
 
         <div class="container">
-            
+
                     <article>
+                        <p id="category">Catégorie : <em><?= $article->getCategoryName() ?></em></p>
+
                         <h1><?= $article->getTitle() ?></h1>
-            
+
                         <?php
                         if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                             if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
-                                echo '<a class="btn" href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
+                                echo '<a class="btn" href="edit_article.php?id='. $article->getId() .'" id="edit-btn">edit</a>';
                             }
                         }
                         ?>
-                
-                        <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
-            
-                        <p>Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
-            
-                        <p><?= $article->getContent() ?></p>
-            
+
+
+                        <p id="author">Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
+
                         <?php if ($article->getImage() !== null) : ?>
-                            <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article image">
+                            <div id="main-img"><img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article image"></div>
                         <?php endif ?>
+                        
+                        <p id="content"><?= $article->getContent() ?></p>
                     </article>
-            
+
                     <?php if (isset($_SESSION['id'])): ?>
                         <section id="new-comment">
                             <form action="./../../app/controller/article.php" method="post">
@@ -97,7 +98,7 @@ $comments = $article->getComments();
                             </form>
                         </section>
                     <?php endif ?>
-            
+
                     <section id="comments">
                         <?php foreach ($comments as $comment) : ?>
                             <?php $author = $comment->getAuthor() ?>

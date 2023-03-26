@@ -1,3 +1,38 @@
 h1 {
     cursor: default;
 }
+
+.container {
+    padding: 10px 30px;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+#edit-btn {
+    padding: 4px 8px;
+    font-size: 14px;
+    background-color: yellowgreen;
+    letter-spacing: 1px;
+}
+
+#author {
+    margin-top: 40px;
+}
+
+#main-img {
+    width: 600px;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-img img {
+    width: 100%;
+}
+
+#content {
+    width: 70%;
+    margin-top: 30px;
+}
