@@ -71,9 +71,10 @@ $comments = $article->getComments();
                         <h1><?= $article->getTitle() ?></h1>
 
                         <?php
+                        // edit button
                         if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                             if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
-                                echo '<a class="btn" href="edit_article.php?id='. $article->getId() .'" id="edit-btn">edit</a>';
+                                echo '<a class="btn" href="edit_article.php?id='. $article->getId() .'" id="edit-btn">Éditer</a>';
                             }
                         }
                         ?>
@@ -92,14 +93,15 @@ $comments = $article->getComments();
                         <section id="new-comment">
                             <form action="./../../app/controller/article.php" method="post">
                                 <label for="comment-content">Ajouter un commentaire</label>
-                                <textarea name="comment-content" id="comment-content" cols="30" rows="10"></textarea>
+                                <textarea name="comment-content" id="comment-content" cols="50" rows="5"></textarea>
                                 <input type="hidden" name="article-id" value="<?= $article->getId() ?>">
-                                <button class="btn" type="submit" name="submit-comment">Envoyer</button>
+                                <button class="btn" type="submit" name="submit-comment">Commenter</button>
                             </form>
                         </section>
                     <?php endif ?>
 
                     <section id="comments">
+                        <h2>Commentaires</h2>
                         <?php foreach ($comments as $comment) : ?>
                             <?php $author = $comment->getAuthor() ?>
                             <div class="comment">
