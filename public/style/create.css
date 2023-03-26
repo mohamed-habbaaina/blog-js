@@ -2,12 +2,12 @@ main {
     height: 87vh;
 }
 
-main > .container {
+main>.container {
     height: 100%;
     color: #444;
 }
 
-main form{
+main form {
     display: flex;
     flex-direction: column;
     color: #444;
@@ -15,14 +15,18 @@ main form{
     margin-left: auto;
     margin-right: auto;
 }
-main form h1{
+
+main form h1 {
     padding: 15px;
 }
-main form label, main form input{
+
+main form label,
+main form input {
     margin: 5px 0;
     padding: 8px 10px;
     border-radius: 5px;
 }
-main form button{
+
+main form button {
     margin-top: 15px;
 }

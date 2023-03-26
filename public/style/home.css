@@ -1,4 +1,4 @@
-main{
+main {
     width: 100%;
     margin: 0 auto;
 }
@@ -6,7 +6,7 @@ main{
 /* *********** Search bar******** */
 /* ****************************** */
 
-.headerSearch{
+.headerSearch {
     width: 100%;
     height: 93vh;
     display: flex;
@@ -14,64 +14,75 @@ main{
     justify-content: center;
     align-items: center;
 }
-.headerSearch h1{
+
+.headerSearch h1 {
     font-size: 28px;
     text-align: center;
     margin-bottom: 50px;
 }
-.headerSearch p{
+
+.headerSearch p {
     text-align: center;
 }
-.headerSearch form{
+
+.headerSearch form {
     margin-top: 50px;
 }
-.headerSearch form input{
+
+.headerSearch form input {
     width: 340px;
     padding: 7px 12px;
     border-radius: 5px;
 }
 
-#result{
+#result {
     margin-top: 20px;
     padding: 0 auto;
     max-height: 400px;
     overflow: auto;
 }
-#result li{
+
+#result li {
     padding: 5px 7px;
     border-bottom: 0.1px dashed black;
 }
-#result li a{
+
+#result li a {
     color: black;
 }
 
 /* ***********  Articles ******** */
 /* ****************************** */
-.articlHome{
+.articlHome {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
-.cardLeft{
+
+.cardLeft {
     width: 45%;
     position: relative;
     height: 80%;
 }
-.cardLeft img{
+
+.cardLeft img {
     width: 100%;
     height: 250px;
     object-fit: cover;
 
 }
-.cardLeft h3{
+
+.cardLeft h3 {
     margin: 20px 0;
     text-align: center;
 }
-.cardLeft .author{
+
+.cardLeft .author {
     margin-bottom: 40px;
 }
-.cardLeft button{
+
+.cardLeft button {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -80,19 +91,23 @@ main{
     border-radius: 5px;
     transition: all .3s;
 }
-.cardLeft button:hover{
+
+.cardLeft button:hover {
     background-color: rgb(252, 145, 52);
     letter-spacing: 1px;
 }
-.cardLeft button a{
+
+.cardLeft button a {
     color: white;
     font-weight: bold;
 }
-.cardRight{
+
+.cardRight {
     width: 45%;
 
 }
-.card{
+
+.card {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -104,15 +119,18 @@ main{
     padding: 5px;
     margin: auto;
 }
-.card img{
+
+.card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
-.card h3{
+
+.card h3 {
     margin: 20px 0;
 }
-.card button{
+
+.card button {
     position: absolute;
     right: 0;
     bottom: 5px;
@@ -121,18 +139,22 @@ main{
     border-radius: 5px;
     transition: all .3s;
 }
-.card button:hover{
+
+.card button:hover {
     background-color: rgb(252, 145, 52);
     letter-spacing: 1px;
 }
-.card button a{
+
+.card button a {
     color: white;
     font-weight: bold;
 }
-.author{
+
+.author {
     display: flex;
     justify-content: space-between;
 }
-.author span{
+
+.author span {
     font-weight: bold;
 }

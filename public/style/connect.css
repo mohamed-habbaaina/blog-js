@@ -1,4 +1,4 @@
-main{
+main {
     /* width: 80%; */
     height: 84vh;
     display: flex;
@@ -7,19 +7,24 @@ main{
     margin: 0 auto;
     /* background: black;  */
 }
-main form{
+
+main form {
     display: flex;
     flex-direction: column;
     color: #fff;
 }
-main form h1{
+
+main form h1 {
     padding: 15px;
 }
-main form label, main form input{
+
+main form label,
+main form input {
     margin: 5px 0;
     padding: 8px 10px;
     border-radius: 5px;
 }
-main form button{
+
+main form button {
     margin-top: 15px;
 }

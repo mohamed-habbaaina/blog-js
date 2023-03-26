@@ -1,4 +1,4 @@
-main{
+main {
     height: 86vh;
     width: 100%;
     margin: auto;
@@ -11,12 +11,13 @@ main .container {
     height: 100%;
 }
 
-.pages{
+.pages {
     display: flex;
     flex-direction: row-reverse;
-    
+
 }
-.pages button{
+
+.pages button {
     margin-inline: 20px;
     margin-bottom: 10px;
     background-color: rgb(225, 19, 19);
@@ -24,7 +25,8 @@ main .container {
     /* padding: 4px 8px; */
     border-radius: 5px;
 }
-.blog{
+
+.blog {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     justify-content: center;
@@ -33,7 +35,8 @@ main .container {
     overflow-y: auto;
     /* margin-top: 120px; */
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -45,20 +48,24 @@ main .container {
     margin: auto;
 
 }
-.card h3{
+
+.card h3 {
     margin: 10px 0;
     text-align: center;
 }
-.card img{
+
+.card img {
     width: 100%;
     height: 130px;
     object-fit: cover;
 }
-.card p{
+
+.card p {
     padding: 10px 5px;
     text-align: justify;
 }
-.card button{
+
+.card button {
     background-color: rgb(225, 19, 19);
     color: white;
     padding: 4px 8px;
@@ -66,7 +73,8 @@ main .container {
     font-weight: bold;
     transition: all .3s;
 }
-.card button:hover{
+
+.card button:hover {
     background-color: rgb(252, 145, 52);
     letter-spacing: 1.5px;
     color: black;
@@ -76,56 +84,65 @@ main .container {
 /* *************************************** */
 
 @media screen and (max-width: 1390px) {
-    main > .container {
+    main>.container {
         width: 90%;
     }
-    .blog{
+
+    .blog {
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
         grid-gap: 20px;
     }
+
     /* .card a{
         margin-right: 7%;
     } */
 
 }
-@media screen and (max-width: 1145px){
-    main > .container {
+
+@media screen and (max-width: 1145px) {
+    main>.container {
         width: 95%;
     }
 
-    .blog{
+    .blog {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         grid-gap: 20px;
     }
+
     /* .container img{
         /* width: 260px; */
-        /* height: 180px; */
+    /* height: 180px; */
     /* } */
     /* .card a{
         margin-right: 2%;
     } */
 }
-@media screen and (max-width: 1075px){
 
-    .pages{
+@media screen and (max-width: 1075px) {
+
+    .pages {
         margin-right: 5%;
     }
-    .blog{
+
+    .blog {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
     }
+
     /* .card a{ */
-        /* margin-right: 15%; */
+    /* margin-right: 15%; */
     /* } */
 }
-@media screen and (max-width: 758px){
 
-    .pages{
+@media screen and (max-width: 758px) {
+
+    .pages {
         justify-content: center;
         margin: auto;
     }
+
     /* .card a{ */
-        /* margin-right: 25%; */
+    /* margin-right: 25%; */
     /* } */
 
 }
