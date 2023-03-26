@@ -107,6 +107,31 @@ $comments = $article->getComments();
                             <div class="comment">
                                 <p>Commentaire écrit par <b><?= $author ? $author['username'] : '<i>utilisateur supprimé</i>' ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
                                 <p class="content"><?= $comment->getContent() ?></p>
+
+                                <?php
+                                // for logged users only
+                                if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
+                                    // authors can delete theirs comments
+                                    if ($author['id'] === $_SESSION['id']) {
+                                        echo '<form method="post"><button type="submit" name="delete-comment" value="' . $comment->getId() . '">deleteuser</button></form>';
+                                    } else {
+                                        switch ($_SESSION['role']) {
+                                            // admin can do anything
+                                            case 'admin':
+                                                echo '<form method="post"><button type="submit" name="delete-comment" value="' . $comment->getId() . '">deleteadmin</button></form>';
+                                                break;
+
+                                            case 'moderator':
+                                                // mods can delete basic users comments
+                                                if ($author['role'] !== 'admin' && $author !== 'moderator') {
+                                                    echo '<form method="post"><button type="submit" name="delete-comment" value="' . $comment->getId() . '">deletemod</button></form>';
+                                                }
+                                                break;
+                                        }
+                                    }
+                                }
+                                ?>
+
                             </div>
                         <?php endforeach ?>
                     </section>

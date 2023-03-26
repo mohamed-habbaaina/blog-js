@@ -109,7 +109,7 @@ class Comment
      */
     public function getAuthor()
     {
-        $sql = 'SELECT username, role FROM users WHERE id = :id';
+        $sql = 'SELECT id, username, role FROM users WHERE id = :id';
 
         $select = DbConnection::getDb()->prepare($sql);
 
