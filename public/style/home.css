@@ -18,9 +18,9 @@ main {
 main > .container {
     background-color: rgba(102, 102, 102, 0.253);
     width: 100%;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    -moz-backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
 }
 
 /* *********** Search bar******** */
@@ -49,8 +49,8 @@ main > .container {
     margin-left: auto;
     margin-right: auto;
     margin-top: 18px;
-    text-shadow: 1px 1px 1px #000;
-    font-size: 17px;
+    /* text-shadow: -2px 2px 3px #ccc; */
+    font-size: 20px;
 }
 
 .headerSearch form {
