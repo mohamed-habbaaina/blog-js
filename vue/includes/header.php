@@ -1,5 +1,5 @@
 <header>
-    <a href="../../public/index.php">LOGO</a>
+    <a href="../../public/index.php" id="header-icon"><img src="../../public/img/chef.png" alt="icone site chef"></a>
     <nav>
         <ul>
             <li><a href="../../public/index.php">Accueil</a></li>

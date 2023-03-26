@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <a href="#">LOGO</a>
+        <a href="../../public/index.php" id="header-icon"><img src="img/chef.png" alt="icone site chef"></a>
         <nav>
             <ul>
                 <li><a href="#">Accueil</a></li>
