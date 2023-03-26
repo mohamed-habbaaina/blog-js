@@ -1,5 +1,5 @@
 main {
-    height: 86vh;
+    height:calc(100vh - 140px);
     width: 100%;
     margin: auto;
     overflow: auto;
