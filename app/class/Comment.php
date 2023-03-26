@@ -120,6 +120,23 @@ class Comment
         return $select->fetch(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * find article id in database using $_id property
+     * @return int article_id found in database
+     */
+    public function findArticleId()
+    {
+        $sql = 'SELECT article_id FROM comments WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $this->_id);
+
+        $select->execute();
+
+        return $select->fetchColumn();
+    }
+
     public function delete(): bool
     {
         $sql = 'DELETE FROM comments WHERE id = :id';
@@ -239,3 +256,10 @@ class Comment
         return $this;
     }
 }
+
+
+// $com = new Comment();
+
+// $com->setId(39);
+
+// var_dump($com->findArticleId());
