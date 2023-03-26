@@ -147,14 +147,14 @@ async function displayUsers(e)
     let data = await reponse.json();
     // Creation table
     let html = `
-        <h2>Géré les utilisateurs</h2>
+        <h2>Gérer les utilisateurs</h2>
         <table>
         <thead>
-            <th>Username</th>
-            <th>Register date</th>
-            <th>Role actuel</th>
-            <th>Role</th>
-            <th>Delete</th>
+            <th>Nom d'utilisateur</th>
+            <th>Date d'inscription</th>
+            <th>Rôle actuel</th>
+            <th>Modifier le rôle</th>
+            <th>Supprimer</th>
         </thead>
         <tbody>
 
@@ -170,15 +170,15 @@ async function displayUsers(e)
         <td>${item.role}</td>
         <td class="users">
             <select name="role" id="role">
-                <option value="">--Changer le Role--</option>
+                <option value="">--Modifier le Role--</option>
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
-                <option value="moderateur">Moderateur</option>
+                <option value="moderateur">Modérateur</option>
             </select>
             <button type="button" data-username="${item.username}">Changer</button>
         </td>
         <td>
-        <a href="admin.php?username=${item.username}">Delete</a>
+        <a href="admin.php?username=${item.username}" class="deleteUser">Supprimer</a>
         </td>
     </tr>
 
@@ -256,13 +256,13 @@ fetch('./../../app/controller/adminArticle.php', {
 
     // Creation table
         let html = `
-            <h2>Géré les articles</h2>
+            <h2>Gérer les articles</h2>
             <table>
             <thead>
                 <th>Title</th>
                 <th>Date</th>
-                <th>autheur</th>
-                <th>Delete</th>
+                <th>Auteur</th>
+                <th>Supprimer</th>
             </thead>
             <tbody>
             
@@ -276,7 +276,7 @@ fetch('./../../app/controller/adminArticle.php', {
                     <td>${item.creation_date}</td>
                     <td>${item.username}</td>
                     <td>
-                        <a href="admin.php?idArticle=${item.id}&title=${item.title}" class="deleteUser">Delete</a>
+                        <a href="admin.php?idArticle=${item.id}&title=${item.title}" class="deleteArticle">Supprimer</a>
                     </td>
                         
                 </tr>

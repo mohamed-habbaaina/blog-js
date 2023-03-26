@@ -1,3 +1,7 @@
 main {
     min-height: calc(100vh - 80px);
 }
+
+.deleteUser, .deleteArticle {
+    color: red;
+}
