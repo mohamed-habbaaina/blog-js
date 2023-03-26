@@ -57,7 +57,10 @@
         <section class="headerSearch">
             <div>
                 <h1>Blog Cuisine Méditerranéenne</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
+                <p>
+                    La cuisine méditerranéenne est la nourriture et les méthodes de préparation des habitants de la région du bassin méditerranéen.<br>
+                    La région couvre une grande variété de cultures avec des cuisines distinctes, en particulier la maghrébine, l’italienne, l’égyptienne, la levantine, la turque, la grecque, la provençale, la chypriote, la maltaise, l’espagnole,la libanaise et la portugaise. Cependant, les connexions historiques de la région, ainsi que l'impact de la mer Méditerranée sur le climat et l'économie de la région, font que ces cuisines partagent plusieurs plats.
+                </p>
             </div>
             <div>
 
