@@ -57,6 +57,7 @@ header ul li {
 header nav a {
 	color: orange;
 	font-weight: 600;
+	font-size: 18px;
 	transition: all ease .3s;
 }
 
