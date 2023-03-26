@@ -2,32 +2,41 @@ main {
     min-height: calc(100vh - 80px);
 }
 
-h2{
+h2 {
     margin: 20px 0;
 }
-form, thead, tbody, th, td{
+
+form,
+thead,
+tbody,
+th,
+td {
     border: 1px solid black;
     padding: 5px 7px;
     background-color: rgb(237, 235, 235);
     text-align: center;
 }
-.btnAdmin{
+
+.btnAdmin {
     height: 7vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.btnAdmin button{
+
+.btnAdmin button {
     padding: 5px 7px;
     font-size: 18px;
     margin-inline: 50px;
 }
-.messAdmin{
+
+.messAdmin {
     color: red;
     padding-left: 30px;
 }
-.container{
+
+.container {
     width: 100%;
     min-height: 77vh;
     display: flex;
@@ -35,24 +44,31 @@ form, thead, tbody, th, td{
     justify-content: center;
     align-items: center;
 }
-.adminCategory form{
+
+.adminCategory form {
     display: flex;
     flex-direction: column;
     padding: 15px;
 }
-.adminCategory input, label, textarea{
+
+.adminCategory input,
+label,
+textarea {
     margin: 5px 0;
     padding: 7px 10px;
     border-radius: 5px;
 }
-.adminCategory button{
+
+.adminCategory button {
     margin-top: 10px;
 }
-.adminUsers select{
+
+.adminUsers select {
     padding: 5px 7px;
     border-radius: 5px;
 }
-.adminUsers button{
+
+.adminUsers button {
     background-color: green;
     padding: 3px;
     border-radius: 5px;
@@ -62,7 +78,8 @@ form, thead, tbody, th, td{
     letter-spacing: 1px;
     cursor: pointer;
 }
-.adminUsers a{
+
+.adminUsers a {
     background-color: red;
     padding: 3px;
     border-radius: 5px;
@@ -72,7 +89,8 @@ form, thead, tbody, th, td{
     letter-spacing: 1px;
 
 }
-.adminArticles a{
+
+.adminArticles a {
     background-color: red;
     padding: 3px;
     border-radius: 5px;
