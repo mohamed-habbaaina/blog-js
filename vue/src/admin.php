@@ -89,7 +89,7 @@ endif;
                     <label for="name">Nom de la catégorie</label>
                     <input type="text" name="namecategorie">
                     <small></small>
-                    <label for="description">Déscription</label>
+                    <label for="description">Description</label>
                     <textarea name="description" rows="2"></textarea>
                     <small></small>
                     <button class="btn">Valider</button>
