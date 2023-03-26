@@ -102,7 +102,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./../../public/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./../../public/style/style.css">
-    <link rel="stylesheet" href="./../../public/style/edit.css">
+    <link rel="stylesheet" href="./../../public/style/edit_article.css">
     <script defer src="./../js/edit.js"></script>
     <title>Nouvel Article | Blog Cuisine</title>
 </head>
@@ -112,35 +112,40 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
 
     <main>
 
-        <form enctype="multipart/form-data" action="" method="post" id="formEditArticle">
+        <div class="container">
 
-            <h1>Modifier Article</h1>
+            <form enctype="multipart/form-data" action="" method="post" id="formEditArticle">
+        
+                <h1>Modifier Article</h1>
+        
+                <label for="title">Titre</label>
+                <input type="text" name="title" id="title" placeholder="Titre de votre article" value="<?= $article->getTitle() ?>">
+                <small></small>
+        
+                <label for="category">Catégorie</label>
+                <select name="category" id="category">
+                    <?php foreach ($categories as $category) : ?>
+                        <option value="<?= $category->getId() ?>" <?= $article->getCategoryId() === $category->getId() ? 'selected' : '' ?>><?= $category->getName() ?></option>
+                    <?php endforeach ?>
+                </select>
+                <small></small>
+        
+                <label for="content">Contenu</label>
+                <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"><?= $article->getContent() ?></textarea>
+                <small></small>
+        
+                <?php if ($article->getImage() != null): ?>
+                    <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article current image">
+                <?php endif ?>
+                <label for="image">Modifier l'image</label>
+                <input type="file" name="image" id="image">
+                <small></small>
+        
+                <button name="submit" type="submit">Publier les modifications</button>
+            </form>
 
-            <label for="title">Titre</label>
-            <input type="text" name="title" id="title" placeholder="Titre de votre article" value="<?= $article->getTitle() ?>">
-            <small></small>
+        </div>
 
-            <label for="category">Catégorie</label>
-            <select name="category" id="category">
-                <?php foreach ($categories as $category) : ?>
-                    <option value="<?= $category->getId() ?>" <?= $article->getCategoryId() === $category->getId() ? 'selected' : '' ?>><?= $category->getName() ?></option>
-                <?php endforeach ?>
-            </select>
-            <small></small>
-
-            <label for="content">Contenu</label>
-            <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"><?= $article->getContent() ?></textarea>
-            <small></small>
-
-            <?php if ($article->getImage() != null): ?>
-                <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article current image">
-            <?php endif ?>
-            <label for="image">Modifier l'image</label>
-            <input type="file" name="image" id="image">
-            <small></small>
-
-            <button name="submit" type="submit">Publier les modifications</button>
-        </form>
 
     </main>
 
