@@ -109,7 +109,7 @@ class Comment
      */
     public function getAuthor()
     {
-        $sql = 'SELECT username, role FROM users WHERE id = :id';
+        $sql = 'SELECT id, username, role FROM users WHERE id = :id';
 
         $select = DbConnection::getDb()->prepare($sql);
 
@@ -118,6 +118,23 @@ class Comment
         $select->execute();
 
         return $select->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * find article id in database using $_id property
+     * @return int article_id found in database
+     */
+    public function findArticleId()
+    {
+        $sql = 'SELECT article_id FROM comments WHERE id = :id';
+
+        $select = DbConnection::getDb()->prepare($sql);
+
+        $select->bindParam(':id', $this->_id);
+
+        $select->execute();
+
+        return $select->fetchColumn();
     }
 
     public function delete(): bool
@@ -239,3 +256,10 @@ class Comment
         return $this;
     }
 }
+
+
+// $com = new Comment();
+
+// $com->setId(39);
+
+// var_dump($com->findArticleId());

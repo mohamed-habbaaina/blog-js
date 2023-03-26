@@ -36,4 +36,37 @@ if (isset($_POST['submit-comment'])) {
             // die();
         }
     }
+} elseif (isset($_POST['delete-comment'])) {
+    
+    $delete_comment = new Comment();
+    
+    $delete_comment->setId($_POST['delete-comment']);
+
+    $article_id = $delete_comment->findArticleId();
+
+    $author = $delete_comment->getAuthor();
+
+    // for logged users only
+    if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
+    // authors can delete theirs comments
+        if ($author['id'] === $_SESSION['id']) {
+            $delete_comment->delete();
+        } else {
+            switch ($_SESSION['role']) {
+                // admin can do anything
+                case 'admin':
+                    $delete_comment->delete();
+                    break;
+
+                case 'moderator':
+                    // mods can delete basic users comments
+                    if ($author['role'] !== 'admin' && $author['role'] !== 'moderator') {
+                        $delete_comment->delete();
+                    }
+                    break;
+            }
+        }
+    }
+
+    header('Location: ../../vue/src/article.php?id=' . $article_id);
 }

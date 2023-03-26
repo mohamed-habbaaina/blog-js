@@ -90,3 +90,13 @@ article {
     font-size: 15px;
     overflow-x: auto;
 }
+
+.comment .delete-com {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment .btn.small {
+    font-size: 14px;
+    padding: 3px 6px;
+}
