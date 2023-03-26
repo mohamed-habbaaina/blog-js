@@ -130,19 +130,19 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
                     <?php endforeach ?>
                 </select>
                 <small></small>
-        
-                <label for="content">Contenu</label>
-                <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"><?= $article->getContent() ?></textarea>
-                <small></small>
-        
+
                 <?php if ($article->getImage() != null): ?>
                     <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article current image">
                 <?php endif ?>
                 <label for="image">Modifier l'image</label>
                 <input type="file" name="image" id="image">
                 <small></small>
-        
-                <button class="btn" name="submit" type="submit">Publier les modifications</button>
+         
+                <label for="content">Contenu</label>
+                <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"><?= $article->getContent() ?></textarea>
+                <small></small>
+                
+                <button class="btn" type="submit" name="submit" id="submit">Publier les modifications</button>
             </form>
 
         </div>
