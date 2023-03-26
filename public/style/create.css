@@ -18,6 +18,7 @@ main form {
 
 main form h1 {
     padding: 15px;
+    cursor: default;
 }
 
 main form label,
