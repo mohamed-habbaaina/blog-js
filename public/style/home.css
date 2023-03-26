@@ -1,6 +1,26 @@
+header {
+    background-color: orange;
+}
+
+header nav a {
+    color: #ddd;
+}
+
 main {
     width: 100%;
     margin: 0 auto;
+    background-image: url(../img/Mediterranean-Food-Image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+main > .container {
+    background-color: rgba(102, 102, 102, 0.253);
+    width: 100%;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    -moz-backdrop-filter: blur(3px);
 }
 
 /* *********** Search bar******** */
@@ -12,7 +32,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 200px;
+    padding-top: 55px;
+    background-color: rgba(50, 50, 70, .5);
+    color: orange;
 }
 
 .headerSearch h1 {
@@ -21,8 +43,14 @@ main {
     margin-bottom: 50px;
 }
 
-.headerSearch p{
+.headerSearch p {
     text-align: justify;
+    width: 68%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 18px;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 17px;
 }
 
 .headerSearch form {
@@ -48,7 +76,12 @@ main {
 }
 
 #result li a {
-    color: black;
+    /* color: black; */
+}
+
+#result li a:hover {
+    /* color: black; */
+    text-decoration: underline;
 }
 
 /* ***********  Articles ******** */
@@ -58,6 +91,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: orange;
 }
 
 .cardLeft {
