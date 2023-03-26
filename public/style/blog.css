@@ -76,7 +76,7 @@ main .container {
 /* *************************************** */
 
 @media screen and (max-width: 1390px) {
-    main{
+    main > .container {
         width: 90%;
     }
     .blog{
@@ -89,7 +89,7 @@ main .container {
 
 }
 @media screen and (max-width: 1145px){
-    main{
+    main > .container {
         width: 95%;
     }
 
