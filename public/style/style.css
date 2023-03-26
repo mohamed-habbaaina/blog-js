@@ -70,6 +70,7 @@ footer{
     font-weight: bold;
     text-decoration: none;
     transition: all .3s;
+	cursor: pointer;
 }
 .btn:hover{
     background-color: rgb(252, 145, 52);

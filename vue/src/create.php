@@ -64,7 +64,7 @@ $categories = Category::getAll();
                 <input type="file" name="image" id="image">
                 <small></small>
     
-                <button name="submit" type="submit">Publier</button>
+                <button class="btn" name="submit" type="submit">Publier</button>
             </form>
         </div>
 

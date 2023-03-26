@@ -71,7 +71,7 @@ $comments = $article->getComments();
                         <?php
                         if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
                             if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
-                                echo '<a href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
+                                echo '<a class="btn" href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
                             }
                         }
                         ?>
@@ -93,7 +93,7 @@ $comments = $article->getComments();
                                 <label for="comment-content">Ajouter un commentaire</label>
                                 <textarea name="comment-content" id="comment-content" cols="30" rows="10"></textarea>
                                 <input type="hidden" name="article-id" value="<?= $article->getId() ?>">
-                                <button type="submit" name="submit-comment">Envoyer</button>
+                                <button class="btn" type="submit" name="submit-comment">Envoyer</button>
                             </form>
                         </section>
                     <?php endif ?>

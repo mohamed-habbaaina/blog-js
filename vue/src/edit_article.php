@@ -141,7 +141,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
                 <input type="file" name="image" id="image">
                 <small></small>
         
-                <button name="submit" type="submit">Publier les modifications</button>
+                <button class="btn" name="submit" type="submit">Publier les modifications</button>
             </form>
 
         </div>
