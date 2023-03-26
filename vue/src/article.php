@@ -111,20 +111,21 @@ $comments = $article->getComments();
                                 <?php
                                 // for logged users only
                                 if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
+                                    $delete_button = '<form action="./../../app/controller/article.php" method="post"><button class="btn small" type="submit" name="delete-comment" value="' . $comment->getId() . '">Delete Comment</button></form>';
                                     // authors can delete theirs comments
                                     if ($author['id'] === $_SESSION['id']) {
-                                        echo '<form method="post"><button type="submit" name="delete-comment" value="' . $comment->getId() . '">deleteuser</button></form>';
+                                        echo $delete_button;
                                     } else {
                                         switch ($_SESSION['role']) {
                                             // admin can do anything
                                             case 'admin':
-                                                echo '<form method="post"><button type="submit" name="delete-comment" value="' . $comment->getId() . '">deleteadmin</button></form>';
+                                                echo $delete_button;
                                                 break;
 
                                             case 'moderator':
                                                 // mods can delete basic users comments
-                                                if ($author['role'] !== 'admin' && $author !== 'moderator') {
-                                                    echo '<form method="post"><button type="submit" name="delete-comment" value="' . $comment->getId() . '">deletemod</button></form>';
+                                                if ($author['role'] !== 'admin' && $author['role'] !== 'moderator') {
+                                                    echo $delete_button;
                                                 }
                                                 break;
                                         }
