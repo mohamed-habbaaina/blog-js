@@ -173,7 +173,7 @@ async function displayUsers(e)
                 <option value="">--Modifier le Role--</option>
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
-                <option value="moderateur">Modérateur</option>
+                <option value="moderator">Modérateur</option>
             </select>
             <button type="button" data-username="${item.username}">Changer</button>
         </td>
