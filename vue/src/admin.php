@@ -39,9 +39,6 @@ if(isset($_POST['namecategorie']) && isset($_POST['description'])):
 
 
 endif;
-    
-
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -62,11 +59,11 @@ endif;
     <main>
 
         <div class="btnAdmin">
-            <button>Users</button>
-            <button>Articles</button>
+            <button class="btn">Users</button>
+            <button class="btn">Articles</button>
         </div>
         
-        <div style="background-color:aqua">
+        <div class="messAdmin">
 
         <?php
 
@@ -92,10 +89,10 @@ endif;
                     <label for="name">Nom de la catégorie</label>
                     <input type="text" name="namecategorie">
                     <small></small>
-                    <label for="description"></label>
-                    <textarea name="description"></textarea>
+                    <label for="description">Déscription</label>
+                    <textarea name="description" rows="2"></textarea>
                     <small></small>
-                    <button>Valider</button>
+                    <button class="btn">Valider</button>
                 </form>
                 
             </div>
@@ -115,7 +112,7 @@ endif;
         </div>
     </main>
 
-    <?php require_once('./../includes/header.php') ?>
+    <?php require_once('./../includes/footer.php') ?>
 
 </body>
 </html>

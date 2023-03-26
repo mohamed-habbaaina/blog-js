@@ -15,7 +15,7 @@
 
                 <?php if($_SESSION['role'] === 'admin' || $_SESSION['role'] === 'moderator'): // for admins & moderators ?>
 
-                    <li><a href="./create.php">>Écrire un article</a></li> 
+                    <li><a href="./create.php">Écrire un article</a></li> 
 
                 <?php endif // for other logged users ?>
 
