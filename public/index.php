@@ -51,28 +51,21 @@
         </nav>
     </header>
 
-
     <main>
+
         <div class="container">
             <section class="headerSearch">
                 <div>
                     <h1>Blog Cuisine Méditerranéenne</h1>
                     <p>
-                        Bienvenue sur notre blog dédié à la cuisine méditerranéenne ! La cuisine méditerranéenne est une cuisine saine et délicieuse, qui a été façonnée au fil des siècles par les cultures et les traditions des pays bordant la mer Méditerranée. 
+                        Bienvenue sur notre blog dédié à la cuisine méditerranéenne ! Une cuisine saine et délicieuse, façonnée au fil des siècles par les cultures et les traditions des pays bordant la mer Méditerranée : la maghrébine, l’italienne, l’égyptienne, la levantine, la turque, la grecque, la provençale, la chypriote, la maltaise, l’espagnole, la libanaise, la portugaise...
                     </p>
                     <p>
-                    La région couvre une grande variété de cultures avec des cuisines distinctes, en particulier la maghrébine, l’italienne, l’égyptienne, la levantine, la turque, la grecque, la provençale, la chypriote, la maltaise, l’espagnole, la libanaise et la portugaise. 
+                        La cuisine méditerranéenne est caractérisée par l'utilisation d'ingrédients frais et simples, tels que les légumes, les fruits, les olives, les herbes aromatiques et les poissons. En plus d'être délicieuse, cette cuisine a de nombreux bienfaits pour la santé, car elle est riche en nutriments et en antioxydants.
                     </p>
                     <p>
-                    La cuisine méditerranéenne est caractérisée par l'utilisation d'ingrédients frais et simples, tels que les légumes, les fruits, les olives, les herbes aromatiques et les poissons. En plus d'être délicieuse, cette cuisine a de nombreux bienfaits pour la santé, car elle est riche en nutriments et en antioxydants. 
+                        Nous sommes passionnés par la cuisine méditerranéenne et nous sommes heureux de partager avec vous nos recettes, nos astuces et nos conseils pour vous aider à découvrir cette cuisine merveilleuse et à l'apprécier à sa juste valeur.
                     </p>
-                    <p>
-                    Nous sommes passionnés par la cuisine méditerranéenne et nous sommes heureux de partager avec vous nos recettes, nos astuces et nos conseils pour vous aider à découvrir cette cuisine merveilleuse et à l'apprécier à sa juste valeur.
-                    </p>
-                    <!-- <p>
-                        La cuisine méditerranéenne est la nourriture et les méthodes de préparation des habitants de la région du bassin méditerranéen.<br>
-                        La région couvre une grande variété de cultures avec des cuisines distinctes, en particulier la maghrébine, l’italienne, l’égyptienne, la levantine, la turque, la grecque, la provençale, la chypriote, la maltaise, l’espagnole,la libanaise et la portugaise. Cependant, les connexions historiques de la région, ainsi que l'impact de la mer Méditerranée sur le climat et l'économie de la région, font que ces cuisines partagent plusieurs plats.
-                    </p> -->
                 </div>
                 <div>
                     <!-- Le formulaire de recherche -->
@@ -87,7 +80,6 @@
             <section class="articlHome">
             </section>
         </div>
-
 
     </main>
 
