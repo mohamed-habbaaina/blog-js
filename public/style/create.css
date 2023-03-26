@@ -1,0 +1,33 @@
+main {
+    min-height: 87vh;
+}
+
+main > .container {
+    min-height: 100%;
+    color: #444;
+}
+
+#formCreateArticle {
+    display: flex;
+    flex-direction: column;
+}
+
+main form{
+    display: flex;
+    flex-direction: column;
+    color: #444;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+main form h1{
+    padding: 15px;
+}
+main form label, main form input{
+    margin: 5px 0;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+main form button{
+    margin-top: 15px;
+}

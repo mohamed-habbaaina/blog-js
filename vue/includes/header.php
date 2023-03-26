@@ -23,7 +23,7 @@
 
                 <li><a href="./../../app/controller/deconnect.php">Déconnexion</a></li>
 
-            <?php else: ?>
+            <?php else: // for guests ?>
 
                 <li><a href="connect.php">Connexion</a></li>
                 

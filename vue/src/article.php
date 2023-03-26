@@ -63,48 +63,52 @@ $comments = $article->getComments();
 
     <main>
 
-        <article>
-            <h1><?= $article->getTitle() ?></h1>
+        <div class="container">
+            
+                    <article>
+                        <h1><?= $article->getTitle() ?></h1>
+            
+                        <?php
+                        if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
+                            if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
+                                echo '<a href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
+                            }
+                        }
+                        ?>
+                
+                        <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
+            
+                        <p>Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
+            
+                        <p><?= $article->getContent() ?></p>
+            
+                        <?php if ($article->getImage() !== null) : ?>
+                            <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article image">
+                        <?php endif ?>
+                    </article>
+            
+                    <?php if (isset($_SESSION['id'])): ?>
+                        <section id="new-comment">
+                            <form action="./../../app/controller/article.php" method="post">
+                                <label for="comment-content">Ajouter un commentaire</label>
+                                <textarea name="comment-content" id="comment-content" cols="30" rows="10"></textarea>
+                                <input type="hidden" name="article-id" value="<?= $article->getId() ?>">
+                                <button type="submit" name="submit-comment">Envoyer</button>
+                            </form>
+                        </section>
+                    <?php endif ?>
+            
+                    <section id="comments">
+                        <?php foreach ($comments as $comment) : ?>
+                            <?php $author = $comment->getAuthor() ?>
+                            <div class="comment">
+                                <p>Commentaire écrit par <b><?= $author ? $author['username'] : 'utilisateur supprimé' ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
+                                <p><?= $comment->getContent() ?></p>
+                            </div>
+                        <?php endforeach ?>
+                    </section>
 
-            <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
-                if ($_SESSION['id'] === $article->getUserId() && $_SESSION['role'] === 'moderator' || $_SESSION['role'] === 'admin') {
-                    echo '<a href="edit_article.php?id='. $article->getId() .'" id="edit">edit</a>';
-                }
-            }
-            ?>
-    
-            <p>Catégorie : <em><?= $article->getCategoryName() ?></em></p>
-
-            <p>Article écrit par <b><?= $article->getAuthor() ? $article->getAuthor()['username'] : 'utilisateur supprimé' ?></b> le <?= $article->getCreationDate()->format('d/m/Y') ?> à <?= $article->getCreationDate()->format('H:i:s') ?></p>
-
-            <p><?= $article->getContent() ?></p>
-
-            <?php if ($article->getImage() !== null) : ?>
-                <img src="../../uploads/article_thumbnail/<?= $article->getImage() ?>" alt="article image">
-            <?php endif ?>
-        </article>
-
-        <?php if (isset($_SESSION['id'])): ?>
-            <section id="new-comment">
-                <form action="./../../app/controller/article.php" method="post">
-                    <label for="comment-content">Ajouter un commentaire</label>
-                    <textarea name="comment-content" id="comment-content" cols="30" rows="10"></textarea>
-                    <input type="hidden" name="article-id" value="<?= $article->getId() ?>">
-                    <button type="submit" name="submit-comment">Envoyer</button>
-                </form>
-            </section>
-        <?php endif ?>
-
-        <section id="comments">
-            <?php foreach ($comments as $comment) : ?>
-                <?php $author = $comment->getAuthor() ?>
-                <div class="comment">
-                    <p>Commentaire écrit par <b><?= $author ? $author['username'] : 'utilisateur supprimé' ?></b> le <?= $comment->getCreationDate()->format('d/m/Y') ?> à <?= $comment->getCreationDate()->format('H:i:s') ?></p>
-                    <p><?= $comment->getContent() ?></p>
-                </div>
-            <?php endforeach ?>
-        </section>
+        </div>
 
     </main>
 

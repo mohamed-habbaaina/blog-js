@@ -24,16 +24,18 @@ $_SESSION['page'] = $page;
     <?php require_once('./../includes/header.php'); ?>
 
     <main>
-        <div class="pages">
-            <button><a href="blog.php?page=<?php echo $page +1 ?>" id="btnSuivant">Page suivante >></a></button>
-            <button><a href="blog.php?page=<?php echo $page -1 ?>">Page précédente <<</a></button>
-        </div>
-
-         
-        <div class="blog">
-            
-                <!-- Display Fetch JS -->
-
+        <div class="container">
+            <div class="pages">
+                <button><a href="blog.php?page=<?php echo $page +1 ?>" id="btnSuivant">Page suivante >></a></button>
+                <button><a href="blog.php?page=<?php echo $page -1 ?>">Page précédente <<</a></button>
+            </div>
+    
+             
+            <div class="blog">
+                
+                    <!-- Display Fetch JS -->
+    
+            </div>
         </div>
     </main>
     <?php require_once('./../includes/footer.php'); ?>

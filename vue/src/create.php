@@ -38,33 +38,36 @@ $categories = Category::getAll();
 
     <main>
 
-        <form enctype="multipart/form-data" action="./../../app/controller/create.php" method="post" id="formCreateArticle">
+        <div class="container">
+            <form enctype="multipart/form-data" action="./../../app/controller/create.php" method="post" id="formCreateArticle">
+    
+                <h1>Nouvel Article</h1>
+    
+                <label for="title">Titre</label>
+                <input type="text" name="title" id="title" placeholder="Titre de votre article">
+                <small></small>
+    
+                <label for="category">Catégorie</label>
+                <select name="category" id="category">
+                    <option value="">-- Sélectionnez la Catégorie --</option>
+                    <?php foreach ($categories as $category): ?>
+                        <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
+                    <?php endforeach ?>
+                </select>
+                <small></small>
+    
+                <label for="content">Contenu</label>
+                <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"></textarea>
+                <small></small>
+    
+                <label for="image">Image</label>
+                <input type="file" name="image" id="image">
+                <small></small>
+    
+                <button name="submit" type="submit">Publier</button>
+            </form>
+        </div>
 
-            <h1>Nouvel Article</h1>
-
-            <label for="title">Titre</label>
-            <input type="text" name="title" id="title" placeholder="Titre de votre article">
-            <small></small>
-
-            <label for="category">Catégorie</label>
-            <select name="category" id="category">
-                <option value="">-- Sélectionnez la Catégorie --</option>
-                <?php foreach ($categories as $category): ?>
-                    <option value="<?= $category->getId() ?>"><?= $category->getName() ?></option>
-                <?php endforeach ?>
-            </select>
-            <small></small>
-
-            <label for="content">Contenu</label>
-            <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"></textarea>
-            <small></small>
-
-            <label for="image">Image</label>
-            <input type="file" name="image" id="image">
-            <small></small>
-
-            <button name="submit" type="submit">Publier</button>
-        </form>
 
     </main>
 

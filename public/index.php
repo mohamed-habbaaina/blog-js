@@ -54,24 +54,26 @@
 
     <main>
 
-        <section class="headerSearch">
-            <div>
-                <h1>Blog Cuisine Méditerranéenne</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
-            </div>
-            <div>
+        <div class="container">
+            <section class="headerSearch">
+                <div>
+                    <h1>Blog Cuisine Méditerranéenne</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing totam temporibus illum ea rem quis accusamus consequuntur dolorem cumque, corporis dolor deserunt natus fugiat, similique alias. Dolorum repellat voluptates temporibus recusandae nisi ipsa dolore esse quisquam ullam.</p>
+                </div>
+                <div>
 
-                <!-- Le formulaire de recherche -->
-                <form action="../vue/src/article.php?id=" id="formSearch">
-                    <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
-                </form>
-                <!-- L'affichage des resultats -->
-                <ul id="result"></ul>
-            </div>
-        </section>
+                    <!-- Le formulaire de recherche -->
+                    <form action="../vue/src/article.php?id=" id="formSearch">
+                        <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
+                    </form>
+                    <!-- L'affichage des resultats -->
+                    <ul id="result"></ul>
+                </div>
+            </section>
 
-        <section class="articlHome">
-        </section>
+            <section class="articlHome">
+            </section>
+        </div>
 
     </main>
 
