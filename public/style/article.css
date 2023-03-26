@@ -1,0 +1,92 @@
+h1 {
+    cursor: default;
+}
+
+.container {
+    padding: 10px 30px;
+}
+
+/* ARTICLE */
+
+article {
+    margin-bottom: 50px;
+}
+
+#edit-btn {
+    padding: 4px 8px;
+    font-size: 14px;
+    background-color: yellowgreen;
+    letter-spacing: 1px;
+}
+
+#author {
+    margin-top: 40px;
+}
+
+#main-img {
+    width: 600px;
+    margin-top: 35px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-img img {
+    width: 100%;
+}
+
+#content {
+    width: 70%;
+    margin-top: 30px;
+}
+
+/* ADD COMMENT */
+
+#new-comment form   {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+}
+
+#new-comment form  label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+#comment-content {
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* COMMENTS */
+
+#comments {
+    margin-top: 30px;
+}
+
+#comments h2 {
+    margin-bottom: 22px;
+}
+
+.comment {
+    width: 800px;
+    background-color: #888;
+    border-left: 1px solid #888;
+    border-top: 1px solid #888;
+    padding: 20px 30px;
+    margin-bottom: 25px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.comment p:first-child {
+    padding-bottom: 8px;
+    font-size: 17px;
+}
+
+.comment .content {
+    font-size: 15px;
+    overflow-x: auto;
+}

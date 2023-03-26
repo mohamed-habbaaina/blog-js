@@ -1,7 +1,7 @@
-main{
-    min-height: 84vh;
-    width: 80%;
+main {
+    min-height: calc(100vh - 80px);
 }
+
 h2{
     margin: 20px 0;
 }

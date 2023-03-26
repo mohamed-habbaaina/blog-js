@@ -1,9 +1,9 @@
 main {
-    height: calc(100vh - 140px);
+    min-height: calc(100vh - 140px);
 }
 
-main>.container {
-    height: 100%;
+main > .container {
+    min-height: 100%;
     color: #444;
 }
 
@@ -30,6 +30,10 @@ main form input {
 
 main form button {
     margin-top: 15px;
+}
+
+main form small {
+    padding-bottom: 25px;
 }
 
 main form button#submit-article {

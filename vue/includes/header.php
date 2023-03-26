@@ -1,5 +1,5 @@
 <header>
-    <a href="../../public/index.php">LOGO</a>
+    <a href="../../public/index.php" id="header-icon"><img src="../../public/img/chef.png" alt="icone site chef"></a>
     <nav>
         <ul>
             <li><a href="../../public/index.php">Accueil</a></li>
@@ -23,7 +23,7 @@
 
                 <li><a href="./../../app/controller/deconnect.php">Déconnexion</a></li>
 
-            <?php else: ?>
+            <?php else: // for guests ?>
 
                 <li><a href="connect.php">Connexion</a></li>
                 

@@ -1,52 +1,105 @@
-*, ::before, ::after{
+*,
+::before,
+::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-html,body{
-    width: 100%;
+
+html,
+body {
+	width: 100%;
 	height: 100vh;
-    font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	text-decoration: none;
 	list-style: none;
 }
-a{
+
+a {
 	text-decoration: none;
 	color: inherit;
 }
-li{
+
+li {
 	list-style: none;
 
 }
-header{
+
+header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 7vh;
+	height: 80px;
+	background-color: #ddd;
 }
-header ul{
+
+#header-icon {
+	height: 75%;
+	margin-left: 90px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#header-icon img {
+	height: 80%;
+}
+
+header ul {
 	display: flex;
 }
-header ul li{
+
+header ul li {
 	margin: 0 20px;
 }
-footer{
+
+header nav a {
+	color: orange;
+	font-weight: 600;
+	font-size: 18px;
+	transition: all ease .3s;
+}
+
+header nav a:hover {
+	color: #fff;
+}
+
+main {
+	background-color: orange;
 	width: 100%;
-	height: 7vh;
 }
-.btn{
-    background-color: rgb(225, 19, 19);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all .3s;
+
+main > .container {
+	width: 80%;
+	min-height: 100%;
+	margin: 0 auto;
+	background-color: #eee;
 }
-.btn:hover{
-    background-color: rgb(252, 145, 52);
-    letter-spacing: 1.5px;
-    color: black;
+
+footer {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #999;
+}
+
+.btn {
+	background-color: rgb(225, 19, 19);
+	color: white;
+	padding: 8px 15px;
+	border-radius: 5px;
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+	transition: all .3s;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: rgb(252, 145, 52);
+	letter-spacing: 1.5px;
+	color: black;
 }

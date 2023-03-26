@@ -15,7 +15,7 @@
 <body>
 
     <header>
-        <a href="#">LOGO</a>
+        <a href="../../public/index.php" id="header-icon"><img src="img/chef.png" alt="icone site chef"></a>
         <nav>
             <ul>
                 <li><a href="#">Accueil</a></li>
@@ -53,28 +53,30 @@
 
 
     <main>
-
-        <section class="headerSearch">
-            <div>
-                <h1>Blog Cuisine Méditerranéenne</h1>
-                <p>
-                    La cuisine méditerranéenne est la nourriture et les méthodes de préparation des habitants de la région du bassin méditerranéen.<br>
-                    La région couvre une grande variété de cultures avec des cuisines distinctes, en particulier la maghrébine, l’italienne, l’égyptienne, la levantine, la turque, la grecque, la provençale, la chypriote, la maltaise, l’espagnole,la libanaise et la portugaise. Cependant, les connexions historiques de la région, ainsi que l'impact de la mer Méditerranée sur le climat et l'économie de la région, font que ces cuisines partagent plusieurs plats.
-                </p>
+        <div class="container">
+            <section class="headerSearch">
+                <div>
+                    <h1>Blog Cuisine Méditerranéenne</h1>
+                    <p>
+                        La cuisine méditerranéenne est la nourriture et les méthodes de préparation des habitants de la région du bassin méditerranéen.<br>
+                        La région couvre une grande variété de cultures avec des cuisines distinctes, en particulier la maghrébine, l’italienne, l’égyptienne, la levantine, la turque, la grecque, la provençale, la chypriote, la maltaise, l’espagnole,la libanaise et la portugaise. Cependant, les connexions historiques de la région, ainsi que l'impact de la mer Méditerranée sur le climat et l'économie de la région, font que ces cuisines partagent plusieurs plats.
+                    </p>
+                </div>
+                <div>
+                    <!-- Le formulaire de recherche -->
+                    <form action="../vue/src/article.php?id=" id="formSearch">
+                        <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
+                    </form>
+                    <!-- L'affichage des resultats -->
+                    <ul id="result"></ul>
+                </div>
+            </section>
+    
+                <section class="articlHome">
+                </section>
             </div>
-            <div>
+        </div>
 
-                <!-- Le formulaire de recherche -->
-                <form action="../vue/src/article.php?id=" id="formSearch">
-                    <input type="search" name="search" id="search" placeholder="Rechercher un Article ...">
-                </form>
-                <!-- L'affichage des resultats -->
-                <ul id="result"></ul>
-            </div>
-        </section>
-
-        <section class="articlHome">
-        </section>
 
     </main>
 
