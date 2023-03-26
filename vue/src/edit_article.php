@@ -142,7 +142,7 @@ if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
                 <textarea name="content" id="content" placeholder="Contenu de l'article" cols="30" rows="10"><?= $article->getContent() ?></textarea>
                 <small></small>
                 
-                <button class="btn" type="submit" name="submit" id="submit">Publier les modifications</button>
+                <button class="btn" type="submit" name="submit" id="submit-article">Publier les modifications</button>
             </form>
 
         </div>
