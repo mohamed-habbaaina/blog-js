@@ -83,7 +83,16 @@ textarea {
     cursor: pointer;
 }
 
-.adminUsers a {
+.adminArticles .articleLink {
+    text-decoration: underline;
+}
+
+.adminArticles .articleLink:hover {
+    text-decoration: none;
+}
+
+.adminArticles .deleteArticle,
+.adminUsers .deleteUser {
     background-color: red;
     padding: 3px;
     border-radius: 5px;
@@ -94,7 +103,7 @@ textarea {
 
 }
 
-.adminArticles a {
+/* .adminArticles a {
     background-color: red;
     padding: 3px;
     border-radius: 5px;
@@ -103,4 +112,4 @@ textarea {
     font-weight: bold;
     letter-spacing: 1px;
 
-}
+} */
