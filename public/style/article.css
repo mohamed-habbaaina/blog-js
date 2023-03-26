@@ -6,6 +6,8 @@ h1 {
     padding: 10px 30px;
 }
 
+/* ARTICLE */
+
 article {
     margin-bottom: 50px;
 }
@@ -35,4 +37,26 @@ article {
 #content {
     width: 70%;
     margin-top: 30px;
+}
+
+/* COMMENTS */
+
+.comment {
+    width: 800px;
+    background-color: #888;
+    border-left: 1px solid #888;
+    border-top: 1px solid #888;
+    padding: 20px 30px;
+    margin-bottom: 25px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.comment p:first-child {
+    padding-bottom: 8px;
+    font-size: 17px;
+}
+
+.comment .content {
+    font-size: 15px;
 }
