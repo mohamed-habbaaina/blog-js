@@ -6,6 +6,11 @@ h1 {
     padding: 10px 30px;
 }
 
+main {
+    color: #333;
+
+}
+
 /* ARTICLE */
 
 article {
@@ -37,6 +42,8 @@ article {
 #content {
     width: 70%;
     margin-top: 30px;
+    line-height: 1.5em;
+    letter-spacing: .8px;
 }
 
 /* ADD COMMENT */
