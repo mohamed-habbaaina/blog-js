@@ -256,10 +256,3 @@ class Comment
         return $this;
     }
 }
-
-
-// $com = new Comment();
-
-// $com->setId(39);
-
-// var_dump($com->findArticleId());
