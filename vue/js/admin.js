@@ -259,8 +259,8 @@ fetch('./../../app/controller/adminArticle.php', {
             <h2>Gérer les articles</h2>
             <table>
             <thead>
-                <th>Title</th>
-                <th>Date</th>
+                <th>Titre / Lien</th>
+                <th>Date de création</th>
                 <th>Auteur</th>
                 <th>Supprimer</th>
             </thead>
@@ -272,7 +272,7 @@ fetch('./../../app/controller/adminArticle.php', {
             
             html += `
                 <tr>
-                    <td>${item.title}</td>
+                    <td><a href="../src/article.php?id=${item.id}" class="articleLink">${item.title}</a></td>
                     <td>${item.creation_date}</td>
                     <td>${item.username}</td>
                     <td>
