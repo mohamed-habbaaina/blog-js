@@ -47,45 +47,11 @@ class Article
 
     public function __construct()
     {
-        
     }
 
     /**
-     * save article in database
+     * @return bool depending if request is successfull or not
      */
-    public function save()
-    {
-        // $sql = 'SELECT COUNT(id) FROM articles WHERE id = :id';
-
-        // $test = DbConnection::getDb()->prepare($sql);
-
-        // $test->bindParam(':id', $this->_id);
-
-        // $test->execute();
-
-        var_dump(isset($this->_id));
-
-        if (!isset($this->_id)) {
-            $sql = 'INSERT INTO articles (title, content, creation_date, user_id, category_id) VALUES (:title, :content, NOW(), :user_id, :category_id)';
-
-            $save = DbConnection::getDb()->prepare($sql);
-
-            $save->bindParam(':user_id', $this->_user_id);
-            $save->bindParam(':category_id', $this->_category_id);
-        } else {
-            $sql = 'UPDATE articles SET title = :title, content = :content, edit_date = NOW()';
-
-            $save = DbConnection::getDb()->prepare($sql);
-        }
-
-        $save->bindParam(':title', $this->_title);
-        $save->bindParam(':content', $this->_content);
-
-        $save->execute();
-
-        // return $test->fetchColumn();
-    }
-
     public function create(): bool
     {
         $sql = 'INSERT INTO articles (title, content, image, creation_date, user_id, category_id) VALUES (:title, :content, :image, NOW(), :user_id, :category_id)';
@@ -101,6 +67,9 @@ class Article
         return $insert->execute();
     }
 
+    /**
+     * @return bool depending if request is successfull or not
+     */
     public function update(): bool
     {
         $sql = 'UPDATE articles SET title = :title, content = :content, image = :image, edit_date = NOW(), category_id = :category_id WHERE id = :id';
@@ -117,11 +86,17 @@ class Article
     }
 
     /**
-     * delete article from database
+     * @return bool depending if request is successfull or not
      */
-    public function delete()
+    public function delete():bool
     {
+        $sql = 'DELETE FROM articles WHERE id = :id';
 
+        $delete = DbConnection::getDb()->prepare($sql);
+
+        $delete->bindParam(':id', $this->_id, PDO::PARAM_INT);
+
+        return $delete->execute();
     }
 
     /**
@@ -165,8 +140,6 @@ class Article
         $select->bindParam(':id', $this->_user_id);
 
         $select->execute();
-
-        // var_dump($select->fetch(PDO::FETCH_ASSOC));
 
         return $select->fetch(PDO::FETCH_ASSOC);
     }

@@ -8,6 +8,7 @@ $admin = new Admin();
 if(!$admin->isConnected()):
     header('location: ./../../public/index.php');
 endif;
+
 $login = $_SESSION['username'];
 
 if($admin->getRole($login) !== 'admin'):

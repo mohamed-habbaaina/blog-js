@@ -1,4 +1,5 @@
 <?php
+
 namespace User;
 
 use DbConnection;
@@ -10,13 +11,6 @@ require_once 'DbConnection.php';
 
 class User
 {
-    private ?string $username;
-    private ?string $email;
-    private ?string $password;
-    private ?string $repass;
-    private ?int $id;
-    private ?array $data;
-
     public function __construct()
     {
     }

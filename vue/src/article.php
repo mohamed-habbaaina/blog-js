@@ -10,6 +10,7 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY
 
 session_start();
 
+// * idea: use it if js is disabled, if js is enabled modify form action attribute to controller & handle form data & redirections with js
 // if (isset($_POST['submit-comment'])) {
 //     $add_comment = new Comment();
     

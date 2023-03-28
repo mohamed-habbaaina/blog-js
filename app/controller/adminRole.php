@@ -1,4 +1,5 @@
 <?php
+
 require_once('./../../app/class/Admin.php');
 
 $admin = new Admin();
@@ -11,8 +12,8 @@ $admin = new Admin();
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Create a default false response to be able to verify on the javascript side 
-$respone = Array();
-$respone['status'] = 400;
+$response = Array();
+$response['status'] = 400;
 
 // verify if isser key 'username' and 'role' in HTPP.
 if(isset($data['username']) && isset($data['role'])):
@@ -25,12 +26,12 @@ if($admin->getRole($username) !== 'admin'):
 endif;
 
 $admin->updateRole($username, $role);
-$respone['status'] = 203;
+$response['status'] = 203;
 
 endif;
 
 
-// ? second method to solve the undate "GET"
+// ? second method to solve the update "GET"
 // if(isset($_GET['username']) && isset($_GET['role'])):
     // echo json_encode(['test' => 'valeur test']);
     // $username = $_GET['username'];
@@ -39,4 +40,4 @@ endif;
 // endif;
 
 
-echo json_encode($respone);
+echo json_encode($response);

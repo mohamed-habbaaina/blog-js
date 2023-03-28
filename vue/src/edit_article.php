@@ -7,9 +7,6 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'includes'. DIRECTORY_SEPAR
 
 session_start();
 
-// var_dump($_POST, $_SESSION);
-
-
 // test if user is logged
 if (!isset($_SESSION['id']) && !isset($_SESSION['role'])) {
     http_response_code(403);

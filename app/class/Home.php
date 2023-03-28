@@ -7,6 +7,7 @@ class Home extends Article
 {
     public function __construct()
     {}
+
     /**
      * Get data 3 `articles` with the name of the author and the category of the article.
      * @return array

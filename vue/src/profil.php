@@ -1,6 +1,9 @@
 <?php
+
 session_start();
+
 require_once('./../../app/class/Profil.php');
+
 $profil = new Profil();
 
 if(!$profil->isConnected()):

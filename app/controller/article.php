@@ -25,6 +25,7 @@ if (isset($_POST['submit-comment'])) {
             ->setUserId($_SESSION['id']);
 
         if($add_comment->create()) {
+            // ! can't redirect if there is a code http 201
             // header("HTTP/1.1 201 Created");
             // header('Refresh: 0; url=../../vue/src/article.php?id=' . $article_id);
             header('Location: ../../vue/src/article.php?id=' . $article_id);
@@ -37,10 +38,11 @@ if (isset($_POST['submit-comment'])) {
         }
     }
 } elseif (isset($_POST['delete-comment'])) {
-    
     $delete_comment = new Comment();
     
     $delete_comment->setId($_POST['delete-comment']);
+
+    $delete_comment->setUserId($_SESSION['id']);
 
     $article_id = $delete_comment->findArticleId();
 
