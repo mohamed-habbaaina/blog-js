@@ -47,9 +47,11 @@ class Article
 
     public function __construct()
     {
-        
     }
 
+    /**
+     * @return bool depending if request is successfull or not
+     */
     public function create(): bool
     {
         $sql = 'INSERT INTO articles (title, content, image, creation_date, user_id, category_id) VALUES (:title, :content, :image, NOW(), :user_id, :category_id)';
@@ -65,6 +67,9 @@ class Article
         return $insert->execute();
     }
 
+    /**
+     * @return bool depending if request is successfull or not
+     */
     public function update(): bool
     {
         $sql = 'UPDATE articles SET title = :title, content = :content, image = :image, edit_date = NOW(), category_id = :category_id WHERE id = :id';
@@ -129,8 +134,6 @@ class Article
         $select->bindParam(':id', $this->_user_id);
 
         $select->execute();
-
-        // var_dump($select->fetch(PDO::FETCH_ASSOC));
 
         return $select->fetch(PDO::FETCH_ASSOC);
     }
