@@ -86,11 +86,17 @@ class Article
     }
 
     /**
-     * delete article from database
+     * @return bool depending if request is successfull or not
      */
-    public function delete()
+    public function delete():bool
     {
+        $sql = 'DELETE FROM articles WHERE id = :id';
 
+        $delete = DbConnection::getDb()->prepare($sql);
+
+        $delete->bindParam(':id', $this->_id, PDO::PARAM_INT);
+
+        return $delete->execute();
     }
 
     /**
