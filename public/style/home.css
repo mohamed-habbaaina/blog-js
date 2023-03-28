@@ -76,12 +76,7 @@ main > .container {
     border-bottom: 0.1px dashed orange;
 }
 
-#result li a {
-    /* color: black; */
-}
-
 #result li a:hover {
-    /* color: black; */
     text-decoration: underline;
 }
 

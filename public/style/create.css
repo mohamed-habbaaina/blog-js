@@ -2,7 +2,7 @@ main {
     height: calc(100vh - 140px);
 }
 
-main>.container {
+main > .container {
     height: 100%;
     color: #444;
 }
