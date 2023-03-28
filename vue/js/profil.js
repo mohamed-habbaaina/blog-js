@@ -23,14 +23,14 @@ function validusername()
     (
         '^[a-zA-Z0-9\-_]+$'
     )
-    let testusername = usernameRegExp.test(username.value); // @return true , fals
-    // Display messag
+    let testusername = usernameRegExp.test(username.value); // @return true , false
+    // Display message
     let small = username.nextElementSibling;
     
     // username minimum 4 characters.
     if(username.value.length < 4)
     {
-        small.innerHTML = 'username trop court, minimum 4 lettre !';
+        small.innerHTML = 'username trop court, minimum 4 lettres !';
         small.style.color = 'red';
     }
     else
@@ -43,7 +43,7 @@ function validusername()
         }
         else
         {
-            small.innerHTML = 'username Invalid, [a-z] 0-9 (.-_) !';
+            small.innerHTML = 'username Invalide, [a-z] 0-9 (.-_) !';
             small.style.color = 'red';
         return false;
         }
@@ -91,7 +91,7 @@ function validPassword()
 function validRepass(){
     const small = repass.nextElementSibling;
     if(repass.value === password.value){
-        small.innerHTML = 'Confermation Password Valide';
+        small.innerHTML = 'Confirmation Password Valide';
         small.style.color = 'green';
         return true;
     }
@@ -147,7 +147,7 @@ formProfil.addEventListener('submit', function(e)
             }
             else
             {
-                alert('Le Username n\'est pas disponible, Veillez le changé !');
+                alert('Le Username n\'est pas disponible, Veuillez le changé !');
             }
         }
         else

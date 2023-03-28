@@ -24,7 +24,7 @@ const inputDescription = document.forms['formCategory']['description'];
 
 inputName.addEventListener('change', categorie);
 
-// addEventListner form catégorie.
+// addEventListener form catégorie.
 inputDescription.addEventListener('change', description);
 
 
@@ -73,7 +73,7 @@ function categorie()
     {
         let descriptionValue = inputDescription.value;
 
-        // Display messag
+        // Display message
         let small = inputDescription.nextElementSibling;
 
         if(descriptionValue.length >= 8)

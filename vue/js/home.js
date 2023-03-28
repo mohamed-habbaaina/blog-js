@@ -56,8 +56,6 @@ fetch("./../app/controller/home.php", headeArticle)
 .then(response => response.json())
 .then((data) => {
 
-    // console.log(data);
-
     // create a date object to format it.
     let date1 = new Date(data[0].creation_date);
     let date2 = new Date(data[1].creation_date);
