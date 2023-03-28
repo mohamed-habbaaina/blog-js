@@ -4,8 +4,6 @@ require_once dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'app' . DIRECTORY
 
 session_start();
 
-// var_dump($_POST, $_SESSION);
-
 if (!isset($_SESSION['id'])) {
     http_response_code(403);
     header('Location: connect.php');

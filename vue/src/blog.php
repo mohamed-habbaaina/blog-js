@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 // get the page number and store it in a global session variable
