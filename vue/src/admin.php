@@ -5,6 +5,15 @@ require_once('./../../app/class/Admin.php');
 
 $admin = new Admin();
 
+if(!$admin->isConnected()):
+    header('location: ./../../public/index.php');
+    $login = $_SESSION['username'];
+endif;
+
+if($admin->getRole($login) !== 'admin'):
+    header('location: ./../../public/index.php');
+endif;
+
 $mess = [];
 
 if(isset($_GET['username'])){

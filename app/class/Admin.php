@@ -99,9 +99,3 @@ public function getResisterDate($username)
 
 
 }
-
-$admin = new Admin();
-
-// var_dump($admin->validText('allo <br>'));
-// echo '<br>';
-// var_dump($admin->validText('allo c\'est moi'));
