@@ -25,6 +25,7 @@ if (isset($_POST['submit-comment'])) {
             ->setUserId($_SESSION['id']);
 
         if($add_comment->create()) {
+            // ! can't redirect if there is a code http 201
             // header("HTTP/1.1 201 Created");
             // header('Refresh: 0; url=../../vue/src/article.php?id=' . $article_id);
             header('Location: ../../vue/src/article.php?id=' . $article_id);
