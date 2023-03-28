@@ -4,7 +4,6 @@ require_once('DbConnection.php');
 require_once('User.php');
 
 class Admin extends \User\User {
-private ?array $data;
 
 /**
  * Get all users
