@@ -37,10 +37,11 @@ if (isset($_POST['submit-comment'])) {
         }
     }
 } elseif (isset($_POST['delete-comment'])) {
-    
     $delete_comment = new Comment();
     
     $delete_comment->setId($_POST['delete-comment']);
+
+    $delete_comment->setUserId($_SESSION['id']);
 
     $article_id = $delete_comment->findArticleId();
 
