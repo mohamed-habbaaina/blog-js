@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 require_once './../class/Profil.php';
 
 $profil = new Profil();

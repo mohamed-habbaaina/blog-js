@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 require_once('./../class/Blog.php');
 
 // Get the page number stored in the global session variable, and use it for paging 'OFFSET'.

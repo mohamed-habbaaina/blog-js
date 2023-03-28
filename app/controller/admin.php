@@ -1,4 +1,5 @@
 <?php
+
 require_once('./../../app/class/Admin.php');
 
 $admin = new Admin();

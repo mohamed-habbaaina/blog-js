@@ -1,4 +1,5 @@
 <?php
+
 require_once('./../class/Home.php');
 
 if(isset($_GET['search'])):

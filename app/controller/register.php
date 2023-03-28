@@ -1,6 +1,9 @@
 <?php
+
 session_start();
+
 require_once './../class/User.php';
+
 $user = new User\User();
 
 if (isset($_POST['password'])){
