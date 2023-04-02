@@ -17,7 +17,7 @@ formConnect.addEventListener('submit', async function(e)
             body: payload
         });
 
-    if (request.statusText === 'connected !') {
+    if (request.status === 203) {
         alert(request.statusText);
         window.location = "./blog.php";
     } else {

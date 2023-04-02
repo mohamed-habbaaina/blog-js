@@ -23,7 +23,7 @@ if (isset($_POST['password']) && isset($_POST['username'])){
 
 
         //  change statusText HTTP.
-        header("HTTP/1.1 200 connected !");
+        header("HTTP/1.1 203 connected !");
 
     endif;
 
